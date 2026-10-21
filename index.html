@@ -10,7 +10,7 @@
 <style>
 :root{
   --bg:#FDFBF8; --alt:#F8F3EE; --card:#FFFFFF; --text:#1D1A19; --muted:#5E5651; --line:#E9DED3;
-  --accent:#6F5D52; --light:#E4D3C7; --ink:#1D1A19;
+  --accent:#6F5D52; --accent-dark:#54463D; --light:#E4D3C7; --ink:#1D1A19;
   --serif:"Marcellus",Georgia,"Times New Roman",serif;
   --sans:"Jost","Helvetica Neue",Arial,sans-serif;
   --hh:94px;
@@ -35,9 +35,9 @@ section{padding:clamp(70px,9vw,130px) 0}
 .btn::before{content:"";position:absolute;inset:0;background:var(--hov,var(--accent));transform:translateY(101%);transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:-1}
 .btn:hover::before,.btn:focus-visible::before{transform:none}
 .btn:hover,.btn:focus-visible{color:var(--hov-text,#fff)}
-.btn-dark{background:var(--ink);color:#F7F1EB}
-.btn-line{background:transparent;border-color:var(--ink);color:var(--ink);--hov:var(--ink)}
-.btn-cream{background:#F7F1EB;color:var(--ink);--hov:var(--ink)}
+.btn-dark{background:var(--accent);color:#FFFFFF;--hov:var(--accent-dark)}
+.btn-line{background:transparent;border-color:var(--accent);color:var(--accent);--hov:var(--accent)}
+.btn-cream{background:#F7F1EB;color:var(--ink);--hov:var(--accent)}
 .btn-ghost-light{background:transparent;border-color:rgba(255,255,255,.8);color:#fff;--hov:#F7F1EB;--hov-text:var(--ink)}
 .btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
@@ -113,7 +113,7 @@ section{padding:clamp(70px,9vw,130px) 0}
 .contact-info p{margin-bottom:.5em}
 .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .socials a{border:1px solid var(--line);border-radius:999px;padding:.5em 1.1em;font-size:.92rem;text-decoration:none;transition:background .3s,color .3s}
-.socials a:hover{background:var(--ink);color:#F7F1EB}
+.socials a:hover{background:var(--accent);color:#FFFFFF}
 form{display:grid;gap:16px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 label{display:grid;gap:6px;font-size:.92rem;color:var(--muted)}
@@ -131,7 +131,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .foot-logo{width:160px;height:160px;margin-bottom:18px}
 .sub{display:flex;gap:8px}
 .sub input{flex:1}
-.fab{position:fixed;right:20px;bottom:20px;z-index:60;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--ink);color:#F7F1EB;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.22);transform:translateY(140%) scale(.8);transition:transform .5s cubic-bezier(.2,.7,.2,1),background .3s}
+.fab{position:fixed;right:20px;bottom:20px;z-index:60;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--accent);color:#FFFFFF;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.22);transform:translateY(140%) scale(.8);transition:transform .5s cubic-bezier(.2,.7,.2,1),background .3s}
 .fab:hover{background:var(--accent)}
 .fab.show{transform:none}
 .fab svg{width:26px;height:26px}
@@ -176,10 +176,10 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 /* WhatsApp */
 .fab.wa{background:#25D366;color:#fff}
 .fab.wa:hover{background:#1FB957}
-.contact-info a.wa-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);border-radius:999px;padding:.6em 1.25em;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
-.contact-info a.wa-btn svg{width:20px;height:20px;color:var(--ink)}
-.contact-info a.wa-btn:hover{background:var(--ink);border-color:var(--ink);color:#F7F1EB}
-.contact-info a.wa-btn:hover svg{color:#F7F1EB}
+.contact-info a.wa-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--accent);border-radius:999px;padding:.6em 1.25em;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
+.contact-info a.wa-btn svg{width:20px;height:20px;color:var(--accent)}
+.contact-info a.wa-btn:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
+.contact-info a.wa-btn:hover svg{color:#FFFFFF}
 .mbar .msg.wa{background:#25D366;border-color:#25D366;color:#fff}
 
 /* phones: no scroll-drift, so circles and step text never overlap */
@@ -189,12 +189,12 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 }
 
 /* ordinary online chat box (replaces the floating WhatsApp button) */
-.fab.chat{background:var(--ink);color:#F7F1EB;border:0;cursor:pointer;padding:0}
-.fab.chat:hover{background:var(--accent)}
+.fab.chat{background:var(--accent);color:#FFFFFF;border:0;cursor:pointer;padding:0}
+.fab.chat:hover{background:var(--accent-dark)}
 .chat-panel{position:fixed;right:20px;bottom:92px;z-index:70;width:min(340px,calc(100vw - 32px));background:var(--bg);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.22);overflow:hidden;transform-origin:bottom right;animation:chatin .35s cubic-bezier(.2,.7,.2,1) both}
 .chat-panel[hidden]{display:none}
 @keyframes chatin{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
-.chat-head{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#F7F1EB;padding:14px 16px}
+.chat-head{display:flex;justify-content:space-between;align-items:center;background:var(--accent);color:#FFFFFF;padding:14px 16px}
 .chat-head b{font:400 1.1rem var(--serif)}
 .chat-head button{background:none;border:0;color:inherit;font-size:1.6rem;line-height:1;cursor:pointer;padding:0 4px}
 .chat-body{padding:16px}
@@ -209,14 +209,21 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .extras-pick{border:0;margin:0;padding:0;display:grid;gap:10px}
 .extras-pick legend{font-size:.92rem;color:var(--muted);padding:0;margin-bottom:8px}
 .chk{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--ink);cursor:pointer}
-.chk input{width:20px;height:20px;padding:0;accent-color:var(--ink);flex:none}
+.chk input{width:20px;height:20px;padding:0;accent-color:var(--accent);flex:none}
+
+/* home hero: centred and bigger */
+.hero.over.center .hero-body{align-items:center;justify-content:center;text-align:center;padding:clamp(60px,10vh,120px) 0}
+.hero.over.center h1{max-width:15ch;margin-inline:auto;font-size:clamp(3.1rem,8.4vw,7.4rem);line-height:1.02}
+.hero.over.center .rolling{margin:22px auto 34px;font-size:clamp(1.5rem,3.2vw,2.5rem)}
+.hero.over.center .btn-row{justify-content:center}
+.hero.over.center h1,.hero.over.center .rolling{text-shadow:0 2px 30px rgba(0,0,0,.6)}
 
 /* ---- home page ---- */
 .intro-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,6vw,100px);align-items:center}
 .intro-text .btn-row{margin-top:30px}
 .intro-pics{position:relative;height:clamp(420px,46vw,620px)}
 .p-a{position:absolute;right:0;top:0;width:74%;height:80%}
-.p-b{position:absolute;left:0;bottom:0;width:46%;height:52%;box-shadow:0 0 0 10px var(--bg),0 0 0 11px var(--ink)}
+.p-b{position:absolute;left:0;bottom:0;width:46%;height:52%;box-shadow:0 0 0 10px var(--bg),0 0 0 11px var(--accent)}
 .choice{background:var(--alt)}
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,34px);margin-top:46px}
 .choice-grid{align-items:stretch}
@@ -231,7 +238,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .pm-plant{transform-box:view-box;transform-origin:var(--ppx) var(--ppy);animation:pm-sway 5s ease-in-out infinite}
 @keyframes pm-swing{0%,100%{transform:rotate(-2.8deg)}50%{transform:rotate(2.8deg)}}
 @keyframes pm-sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
-.pm-line{width:min(300px,66%);height:6px;border:0;margin:30px 0 0;background:radial-gradient(circle,var(--ink) 1.4px,transparent 1.9px) 0 50%/12px 6px repeat-x;animation:pm-march 2.4s linear infinite}
+.pm-line{width:min(300px,66%);height:6px;border:0;margin:30px 0 0;background:radial-gradient(circle,var(--accent) 1.4px,transparent 1.9px) 0 50%/12px 6px repeat-x;animation:pm-march 2.4s linear infinite}
 @keyframes pm-march{to{background-position:-12px 50%}}
 .anim .pm-wrap{clip-path:inset(100% 0 0 0)}
 .anim .purpose-text.in-view .pm-wrap{clip-path:inset(0 0 0 0);transition:clip-path 1.8s cubic-bezier(.65,0,.25,1)}
@@ -242,7 +249,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .collage-row .c1{grid-row:1 / 3}
 .collage-row .c4{grid-row:1 / 3}
 .stats{padding:0;background:var(--sbg);color:var(--stx);transition:background .5s,color .5s;position:relative}
-.stats[data-tone="dark"]{--sbg:#1D1A19;--stx:#F7F1EB;--snum:#E4D3C7;--sline:rgba(247,241,235,.22);--sstar:#E4D3C7}
+.stats[data-tone="dark"]{--sbg:#6F5D52;--stx:#FFFFFF;--snum:#F6EBDF;--sline:rgba(255,255,255,.3);--sstar:#F6EBDF}
 .stats[data-tone="light"]{--sbg:#FFFFFF;--stx:#1D1A19;--snum:#6F5D52;--sline:#DCCBBF;--sstar:#6F5D52}
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);padding:clamp(54px,8vw,110px) 0}
 .stat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:10px clamp(14px,3vw,40px)}
@@ -258,6 +265,12 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .tone{position:absolute;right:max(14px,2vw);top:12px;display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--stx);opacity:.85}
 .tone button{font:inherit;color:inherit;background:transparent;border:1px solid currentColor;border-radius:999px;padding:.3em .9em;cursor:pointer}
 .tone button[aria-pressed="true"]{background:var(--stx);color:var(--sbg)}
+.btn-long{line-height:1.3;text-align:center;max-width:100%}
+.scheme-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.scheme{margin:0;position:relative;overflow:hidden;aspect-ratio:1/1;border-radius:2px}
+.scheme img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.scheme:hover img{transform:scale(1.06)}
+.scheme figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;color:#fff;font:400 clamp(1rem,1.5vw,1.25rem) var(--serif);background:linear-gradient(to top,rgba(20,15,12,.5),rgba(20,15,12,0));text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .pc{display:block;text-decoration:none;color:var(--ink)}
 .pc .pic{position:relative;overflow:hidden;height:clamp(360px,36vw,520px);border-radius:2px;color:#fff}
 .pc .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
@@ -275,8 +288,8 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .circ-main{left:5%;top:2%;width:66%;aspect-ratio:1}
 .circ-sub{right:3%;bottom:0;width:40%;aspect-ratio:1}
 .ring{position:absolute;border-radius:50%;pointer-events:none}
-.ring.dots{inset:-22px;border:2.5px dotted var(--ink);clip-path:inset(0 0 0 50%);animation:spin 44s linear infinite}
-.ring.thin{inset:-12px;border:1px solid var(--ink)}
+.ring.dots{inset:-22px;border:2.5px dotted var(--accent);clip-path:inset(0 0 0 50%);animation:spin 44s linear infinite}
+.ring.thin{inset:-12px;border:1px solid var(--accent)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .step-row.flip .step-pics{order:2}
 .step-row.flip .circ-main{left:auto;right:5%}
@@ -293,7 +306,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .rate{display:flex;align-items:baseline;gap:14px;margin:10px 0 8px}
 .rate b{font:400 clamp(4rem,8vw,6.2rem)/1 var(--serif)}
 .rate span{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
-.glink{display:inline-block;margin-top:20px;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;border-bottom:1px solid var(--ink);padding-bottom:3px;text-decoration:none}
+.glink{display:inline-block;margin-top:20px;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;border-bottom:1px solid var(--accent);padding-bottom:3px;text-decoration:none}
 .reviews-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,96px);align-items:center}
 .rev-pic{height:clamp(380px,40vw,560px)}
 .slides{display:grid}
@@ -304,10 +317,11 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .rev-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:30px}
 .dots{display:flex;gap:8px}
 .dots button{width:36px;height:3px;border:0;background:var(--line);padding:0;cursor:pointer;position:relative;overflow:hidden}
-.dots button.on::after{content:"";position:absolute;inset:0;background:var(--ink);transform-origin:left;animation:fill 6s linear both}
+.dots button.on::after{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:left;animation:fill 6s linear both}
 @keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (max-width:900px){
   .intro-grid,.choice-grid,.reviews-grid,.rev2{grid-template-columns:1fr}
+  .scheme-grid{grid-template-columns:1fr 1fr}
   .collage-row{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,clamp(150px,40vw,240px))}
   .collage-row .c1{grid-row:1 / 3}
   .collage-row .c4{grid-row:auto}
@@ -353,7 +367,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 
 <main id="top">
   <!-- 1. Hero: lettering over the bright kitchen photo -->
-  <section class="hero over" style="padding:0">
+  <section class="hero over center" style="padding:0">
     <div class="hero-media"><img class="hero-img" src="https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg" alt="Open-plan kitchen and dining room designed by Rosa Rose"></div>
     <div class="hero-body">
       <h1 aria-label="Designing your perfect home">
@@ -366,7 +380,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
         <li>Affordable interior design</li>
         <li>Online e-design</li>
         <li>Furniture floor layouts</li>
-        <li>3D visuals</li>
+        <li>Homes to enhance your wellbeing</li>
       </ul></div>
       <div class="btn-row">
         <a class="btn btn-cream" href="#contact">Enquire with us</a>
@@ -382,7 +396,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
         <h2 class="reveal">Enhance your well-being through thoughtfully designed spaces.</h2>
         <p class="reveal" style="margin-top:24px">Our design services are tailored to your individual requirements, whether you're looking for a simple home refurbishment or a full property redesign. We work with you at your own pace and to your budget.</p>
         <div class="btn-row reveal">
-          <a class="btn btn-dark" href="#contact">Enquire with us</a>
+          <a class="btn btn-dark btn-long" href="#contact">Speak to one of our designers for a free quote</a>
         </div>
       </div>
       <div class="intro-pics">
@@ -523,23 +537,21 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
   </section>
 
   <!-- 5. Projects filmstrip -->
-  <section id="projects" style="background:var(--alt);padding-bottom:clamp(60px,7vw,100px)">
-    <div class="wrap" style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px">
-      <h2 class="reveal">Recent projects</h2>
-      <a class="btn btn-line reveal" href="https://www.rosarosedesign.com/projects-1">See all projects</a>
+  <section id="projects" style="background:var(--alt)">
+    <div class="wrap">
+      <h2 class="reveal">See our design schemes</h2>
+      <div class="scheme-grid">
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg" alt="Edwardian living room"><figcaption>Edwardian living room</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg" alt="Modern feel bar"><figcaption>Modern feel bar</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg" alt="Kitchen"><figcaption>Kitchen</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_fcab380feb774fdb9052ff8e0a3e79c2~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_fcab380feb774fdb9052ff8e0a3e79c2~mv2.jpg" alt="Main bathroom"><figcaption>Main bathroom</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg" alt="Bedroom"><figcaption>Bedroom</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg" alt="Games room"><figcaption>Games room</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg" alt="Loft dining"><figcaption>Loft dining</figcaption></figure>
+        <figure class="scheme reveal"><img src="https://static.wixstatic.com/media/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,enc_auto/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg" alt="Hallway"><figcaption>Hallway</figcaption></figure>
+      </div>
+      <div class="btn-row reveal" style="justify-content:center;margin-top:46px"><a class="btn btn-dark" href="https://threesixtyplus.github.io/rosa/projects.html">See all projects</a></div>
     </div>
-    <div class="strip"><div class="strip-track">
-      <figure><img src="https://static.wixstatic.com/media/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg" alt="Edwardian living room scheme"><figcaption>Edwardian living room scheme</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg" alt="Modern feel bar"><figcaption>Modern feel bar</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg" alt="Kitchen with navy cabinetry"><figcaption>Kitchen</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_fcab380feb774fdb9052ff8e0a3e79c2~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_fcab380feb774fdb9052ff8e0a3e79c2~mv2.jpg" alt="Main bathroom"><figcaption>Main bathroom</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg" alt="Bedroom with floral wallpaper"><figcaption>Bedroom</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg" alt="Games room with pool table"><figcaption>Games room</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_b27bb364c6644a1ab294d8f71bcfd633~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_b27bb364c6644a1ab294d8f71bcfd633~mv2.jpg" alt="Living room visual"><figcaption>Living room visual</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg" alt="Hallway and stairs"><figcaption>Hallway</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg" alt="Loft dining space"><figcaption>Loft dining</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/c6d174_b989864c39f64030b28b66f3f5273cb9~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_b989864c39f64030b28b66f3f5273cb9~mv2.jpg" alt="Bedroom with dressing table"><figcaption>Bedroom</figcaption></figure>
-    </div></div>
   </section>
 
   <!-- 6. Reviews -->

@@ -2,96 +2,781 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rosa Rose design schemes</title>
-<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design services | Rosa Rose Design (services page mockup)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Marcellus&display=swap" rel="stylesheet">
 <style>
 :root{
-  --rowh:284px;   /* height of one row of photos (desktop) */
-  --gap:14px;
+  --bg:#FDFBF8; --alt:#F8F3EE; --card:#FFFFFF; --text:#1D1A19; --muted:#5E5651; --line:#E9DED3;
+  --accent:#6F5D52; --accent-dark:#54463D; --light:#E4D3C7; --ink:#1D1A19;
   --serif:"Marcellus",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --hh:94px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 12px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.12;margin:0}
+h2{font-size:clamp(2rem,4.4vw,3.3rem)}
+h3{font-size:clamp(1.45rem,2.4vw,2rem)}
+p{margin:0 0 1em}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+section{padding:clamp(70px,9vw,130px) 0}
+.lede{font-size:1.15rem;color:var(--muted);max-width:58ch}
+.small{font-size:.9rem;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:var(--rowh);gap:var(--gap)}
-figure{margin:0;position:relative;overflow:hidden;border-radius:2px;background:#E4D3C7}
-img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-figure:hover img{transform:scale(1.06)}
+/* buttons */
+.btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:.82em 1.55em;border-radius:999px;border:1px solid transparent;font:400 .9rem/1 var(--sans);letter-spacing:.04em;text-decoration:none;cursor:pointer;transition:color .4s,border-color .4s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--hov,var(--accent));transform:translateY(101%);transition:transform .5s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover::before,.btn:focus-visible::before{transform:none}
+.btn:hover,.btn:focus-visible{color:var(--hov-text,#fff)}
+.btn-dark{background:var(--accent);color:#FFFFFF;--hov:var(--accent-dark)}
+.btn-line{background:transparent;border-color:var(--accent);color:var(--accent);--hov:var(--accent)}
+.btn-cream{background:#F7F1EB;color:var(--ink);--hov:var(--accent)}
+.btn-ghost-light{background:transparent;border-color:rgba(255,255,255,.8);color:#fff;--hov:#F7F1EB;--hov-text:var(--ink)}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
-/* smaller text, and a box that lets a little of the photo show through */
-figcaption{
-  position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);
-  padding:8px 14px;border-radius:14px;
-  color:#1D1A19;font:400 clamp(.8rem,1.15vw,.95rem)/1.3 var(--serif);
-  background:rgba(247,241,235,.68);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:var(--alt);color:var(--text);box-shadow:0 1px 0 var(--line);transition:background .4s,color .4s,box-shadow .4s}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:var(--hh)}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none}
+.badge{width:88px;height:88px;border-radius:50%;overflow:hidden;flex:none;background:#F0E7DF;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.badge img{width:100%;height:100%;object-fit:cover;transform:scale(1.07)}
+.wm{display:flex;flex-direction:column;gap:7px;line-height:1}
+.wm b{font:400 clamp(1.2rem,1.9vw,1.7rem)/1 var(--serif);text-transform:uppercase;letter-spacing:.34em;white-space:nowrap}
+.wm i{font:400 .68rem/1 var(--sans);font-style:normal;text-transform:uppercase;letter-spacing:.5em;color:var(--muted);white-space:nowrap}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a.link{padding:10px 14px;text-decoration:none;position:relative}
+.nav a.link::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.nav a.link:hover::after,.nav a.link[aria-current="page"]::after{transform:scaleX(1)}
+.nav .btn{margin-left:12px;padding:.72em 1.3em}
+.menu-btn{display:none;background:none;border:1px solid currentColor;border-radius:999px;padding:.65em 1.1em;color:inherit;font:400 .92rem var(--sans);cursor:pointer}
+
+/* hero: split layout, image fully visible, text beside it on cream */
+.hero{display:grid;grid-template-columns:minmax(340px,.82fr) 1.18fr;min-height:calc(100svh - var(--hh));background:var(--bg);color:var(--ink);overflow:hidden}
+.hero.short{min-height:74svh}
+.hero-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,100px) clamp(24px,5vw,84px)}
+.hero-media{position:relative;overflow:hidden;min-height:440px;background:var(--light)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 16s cubic-bezier(.2,.6,.2,1) both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero h1{font-size:clamp(2.6rem,5vw,4.9rem);line-height:1.04;max-width:12ch}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.w>span{display:inline-block;animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d,0) * 120ms + 300ms)}
+@keyframes rise{from{transform:translateY(110%)}to{transform:none}}
+.rolling{height:1.35em;overflow:hidden;font:400 clamp(1.25rem,2.2vw,1.8rem)/1.35 var(--serif);color:var(--accent);margin:18px 0 30px}
+.rolling ul{list-style:none;margin:0;padding:0}
+.rolling li{height:1.35em;white-space:nowrap}
+.hero .btn-row{animation:fadeup 1s 1.1s both}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* image reveal + parallax */
+.frame{position:relative;overflow:hidden;border-radius:2px;background:var(--light)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+/* the wipe runs on the image, not the frame, so the scroll trigger can see the frame */
+.anim .clip{background:transparent}
+.anim .clip img{clip-path:inset(100% 0 0 0);transform:scale(1.18)}
+.anim .clip.in img{clip-path:inset(0 0 0 0);transform:scale(1);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1),transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.zoom:hover img{transform:scale(1.06)}
+.reveal{transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.anim .reveal{opacity:0;transform:translateY(26px)}
+.anim .reveal.in{opacity:1;transform:none}
+[data-speed]{will-change:transform}
+
+/* filmstrip of project photos */
+.strip{overflow:hidden;padding:8px 0}
+.strip-track{display:flex;gap:16px;width:max-content;animation:film 70s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+.strip figure{margin:0;width:clamp(240px,24vw,340px);height:clamp(240px,24vw,340px);position:relative;overflow:hidden;border-radius:2px;flex:none}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.strip figure:hover img{transform:scale(1.07)}
+.strip figcaption{position:absolute;left:12px;bottom:12px;padding:8px 16px;color:var(--ink);font:400 1rem var(--serif);background:rgba(247,241,235,.96);border-radius:999px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.strip figure:hover figcaption{opacity:1;transform:none}
+@keyframes film{to{transform:translateX(-50%)}}
+
+/* closing call to action: photo and text side by side, nothing on top of the photo */
+.cta-split{display:grid;grid-template-columns:1.1fr .9fr;background:var(--alt);padding:0;overflow:hidden}
+.cta-split .cta-pic{position:relative;overflow:hidden;min-height:clamp(380px,40vw,560px)}
+.cta-split .cta-pic img{position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover}
+.cta-split .cta-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,96px)}
+.cta-split h2{max-width:14ch;margin-bottom:16px}
+.cta-split p{color:var(--muted);margin-bottom:28px;max-width:42ch}
+
+/* contact + footer */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,96px)}
+.contact-info a{text-decoration:none;border-bottom:1px solid var(--line)}
+.contact-info a:hover{border-color:var(--accent)}
+.contact-info p{margin-bottom:.5em}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.socials a{border:1px solid var(--line);border-radius:999px;padding:.5em 1.1em;font-size:.92rem;text-decoration:none;transition:background .3s,color .3s}
+.socials a:hover{background:var(--accent);color:#FFFFFF}
+form{display:grid;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-size:.92rem;color:var(--muted)}
+input,select,textarea{font:inherit;color:var(--text);background:var(--card);border:1px solid var(--line);border-radius:2px;padding:.85em 1em;width:100%;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:130px;resize:vertical}
+.thanks{display:none;padding:22px;border:1px solid var(--accent);background:var(--card)}
+.thanks.show{display:block;animation:fadeup .6s both}
+footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1.2fr;gap:36px}
+.foot-grid h4{font-size:1.15rem;margin-bottom:12px}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot-grid a{text-decoration:none}
+.foot-grid a:hover{text-decoration:underline}
+.foot-logo{width:160px;height:160px;margin-bottom:18px}
+.sub{display:flex;gap:8px}
+.sub input{flex:1}
+.fab{position:fixed;right:20px;bottom:20px;z-index:60;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--accent);color:#FFFFFF;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.22);transform:translateY(140%) scale(.8);transition:transform .5s cubic-bezier(.2,.7,.2,1),background .3s}
+.fab:hover{background:var(--accent)}
+.fab.show{transform:none}
+.fab svg{width:26px;height:26px}
+.mbar{display:none}
+.mbar .msg{width:50px;height:50px;padding:0;flex:none}
+.mbar .msg svg{width:22px;height:22px}
+
+@media (max-width:980px){
+  :root{--hh:78px}
+  .wm b{font-size:1.1rem;letter-spacing:.26em}
+  .wm i{font-size:.56rem;letter-spacing:.34em}
+  .menu-btn{display:inline-block}
+  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--alt);color:var(--text);padding:12px 4vw 20px;border-bottom:1px solid var(--line);display:none}
+  .nav.open{display:flex}
+  .nav .btn{margin:10px 0 0}
+  .contact-grid,.foot-grid,.row2,.hero,.cta-split{grid-template-columns:1fr}
+  .hero-media{order:-1;min-height:58vh}
+  .hero-body{padding:34px 4vw 44px}
+  .fab{display:none}
+  .mbar{display:grid;grid-template-columns:auto 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--bg);padding:10px 4vw calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+  footer{padding-bottom:110px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 
-/* tablet: two columns */
+/* home hero: text over the photo */
+.hero.over{display:block;position:relative;min-height:calc(100svh - var(--hh));color:#fff;background:#3a302a}
+.hero.over .hero-media{position:absolute;inset:0;min-height:0;order:0}
+.hero.over::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,15,12,.46),rgba(20,15,12,0) 48%);pointer-events:none;z-index:1}
+.hero.over .hero-body{position:relative;z-index:2;min-height:calc(100svh - var(--hh));justify-content:flex-end;width:min(1240px,92vw);margin-inline:auto;padding:clamp(40px,8vh,90px) 0 clamp(36px,8vh,84px)}
+.hero.over h1,.hero.over .rolling{text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.hero.over .rolling{color:#fff}
+.hero.over h1{max-width:13ch;font-size:clamp(2.7rem,6.2vw,5.4rem)}
+.hero.over.short,.hero.over.short .hero-body{min-height:78svh}
+.hero.over.short h1{font-size:clamp(2.6rem,5.8vw,5rem)}
+
+/* images sliding in from each side */
+.anim .slide-l{opacity:0;transform:translateX(-90px)}
+.anim .slide-r{opacity:0;transform:translateX(90px)}
+.anim .slide-l.in,.anim .slide-r.in{opacity:1;transform:none;transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+/* WhatsApp */
+.fab.wa{background:#25D366;color:#fff}
+.fab.wa:hover{background:#1FB957}
+.contact-info a.wa-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--accent);border-radius:999px;padding:.6em 1.25em;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
+.contact-info a.wa-btn svg{width:20px;height:20px;color:var(--accent)}
+.contact-info a.wa-btn:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
+.contact-info a.wa-btn:hover svg{color:#FFFFFF}
+.mbar .msg.wa{background:#25D366;border-color:#25D366;color:#fff}
+
+/* phones: no scroll-drift, so circles and step text never overlap */
+@media (max-width:900px){
+  [data-speed]{transform:none!important}
+  .cta-split .cta-pic img{top:0;height:100%}
+}
+
+/* ordinary online chat box (replaces the floating WhatsApp button) */
+.fab.chat{background:var(--accent);color:#FFFFFF;border:0;cursor:pointer;padding:0}
+.fab.chat:hover{background:var(--accent-dark)}
+.chat-panel{position:fixed;right:20px;bottom:92px;z-index:70;width:min(340px,calc(100vw - 32px));background:var(--bg);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.22);overflow:hidden;transform-origin:bottom right;animation:chatin .35s cubic-bezier(.2,.7,.2,1) both}
+.chat-panel[hidden]{display:none}
+@keyframes chatin{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+.chat-head{display:flex;justify-content:space-between;align-items:center;background:var(--accent);color:#FFFFFF;padding:14px 16px}
+.chat-head b{font:400 1.1rem var(--serif)}
+.chat-head button{background:none;border:0;color:inherit;font-size:1.6rem;line-height:1;cursor:pointer;padding:0 4px}
+.chat-body{padding:16px}
+.chat-msg{background:var(--card);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:.7em 1em;font-size:.95rem;max-width:90%}
+.chat-form{display:grid;gap:10px;padding:0 16px 16px}
+.chat-form input,.chat-form textarea{border-radius:10px;padding:.7em .9em;font-size:.95rem}
+.chat-form textarea{min-height:72px}
+.chat-form .btn{justify-content:center}
+.chat-thanks{display:none;padding:0 16px 22px;font-size:.95rem}
+@media (max-width:980px){.chat-panel{bottom:calc(88px + env(safe-area-inset-bottom,0px));right:16px}}
+/* extras tick boxes in the enquiry form */
+.extras-pick{border:0;margin:0;padding:0;display:grid;gap:10px}
+.extras-pick legend{font-size:.92rem;color:var(--muted);padding:0;margin-bottom:8px}
+.chk{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--ink);cursor:pointer}
+.chk input{width:20px;height:20px;padding:0;accent-color:var(--accent);flex:none}
+
+/* home hero: centred and bigger */
+.hero.over.center .hero-body{align-items:center;justify-content:center;text-align:center;padding:clamp(60px,10vh,120px) 0}
+.hero.over.center h1{max-width:15ch;margin-inline:auto;font-size:clamp(3.1rem,8.4vw,7.4rem);line-height:1.02}
+.hero.over.center .rolling{margin:22px auto 34px;font-size:clamp(1.5rem,3.2vw,2.5rem)}
+.hero.over.center .btn-row{justify-content:center}
+.hero.over.center h1,.hero.over.center .rolling{text-shadow:0 2px 30px rgba(0,0,0,.6)}
+
+/* ---- design services page ---- */
+.banner{position:relative;min-height:clamp(420px,52vw,660px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0!important}
+.banner-pic{position:absolute;inset:0}
+.banner-pic img{width:100%;height:100%;object-fit:cover}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,15,12,.42),rgba(20,15,12,0) 50%);pointer-events:none}
+.banner-text{position:relative;z-index:2;padding-bottom:clamp(36px,7vw,84px)}
+.banner-text p{font:400 clamp(1.7rem,3.6vw,3.2rem)/1.22 var(--serif);max-width:26ch;margin:0;text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(36px,4vw,60px)}
+.sec-head p{margin:0}
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px);align-items:stretch}
+.pkg{height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(26px,3vw,40px) clamp(20px,2.4vw,34px) 36px;border:1px solid var(--line);border-radius:2px;background:var(--card);transition:border-color .4s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.pkg:hover{border-color:var(--accent);transform:translateY(-6px)}
+.pkg.pop{background:var(--alt);border-color:var(--accent)}
+.disc{position:relative;width:min(100%,360px);aspect-ratio:1;margin:0 auto 10px}
+.disc .ph-img{position:absolute;inset:19%;border-radius:50%;overflow:hidden}
+.disc .ph-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.pkg:hover .disc .ph-img img{transform:scale(1.07)}
+.disc svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring-dots{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:.1 11;transform-origin:200px 200px;animation:spin 70s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring-line{fill:none;stroke:var(--accent);stroke-width:1.2}
+.arc{font:400 25px var(--serif);letter-spacing:.14em;fill:var(--ink);text-transform:uppercase}
+.arc.top{font-size:21px;fill:var(--accent);letter-spacing:.22em}
+.per{font-size:.95rem;color:var(--muted);margin-bottom:18px}
+.meter{width:100%;margin-bottom:20px;text-align:left}
+.meter span{display:block;font-size:.95rem;margin-bottom:7px}
+.track{height:4px;background:var(--line);overflow:hidden}
+.pop .track{background:rgba(29,26,25,.14)}
+.fill{height:100%;width:var(--w);background:var(--accent);transform:scaleX(0);transform-origin:left}
+.in-view .fill{transform:scaleX(1);transition:transform 1.5s .3s cubic-bezier(.2,.7,.2,1)}
+.plus{font-size:.95rem;color:var(--muted);margin-bottom:10px;width:100%;text-align:left}
+.pkg ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:10px;width:100%;text-align:left}
+.pkg li{display:flex;gap:10px;align-items:flex-start}
+.tick{width:18px;height:18px;flex:none;margin-top:3px;fill:none;stroke:var(--accent);stroke-width:2.2}
+.pkg .btn{margin-top:auto}
+.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* multi-room discount banner, dark colour */
+.promo{margin-top:clamp(28px,3.6vw,48px);background:var(--accent-dark);color:#fff;border-radius:2px;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:center;text-align:center}
+.promo p{margin:0}
+.promo .promo-main{font:400 clamp(1.05rem,2vw,1.4rem)/1.2 var(--serif);letter-spacing:.04em}
+
+.extras{margin-top:clamp(28px,3.6vw,48px);background:var(--alt);border:1px solid var(--line);border-radius:2px;padding:clamp(24px,4vw,48px)}
+.extras-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.extras-head p{margin:0;color:var(--muted)}
+.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ex{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .4s}
+.ex:hover{border-color:var(--accent)}
+.ex .frame{width:170px;height:170px;border-radius:50%;margin:30px auto 10px;box-shadow:0 0 0 8px var(--card),0 0 0 9px var(--accent)}
+.ex:hover .frame img{transform:scale(1.06)}
+.ex-body{padding:18px 22px 24px;display:flex;flex-direction:column;flex:1;text-align:center}
+.ex-body b{font:400 1.3rem/1.25 var(--serif);display:block;margin-bottom:6px}
+.ex-body small{color:var(--muted);font-size:.93rem;margin-bottom:16px}
+.ex-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left}
+.ex-foot .p{font:400 1.6rem var(--serif)}
+.ex-foot .btn{padding:.8em 1.4em}
+.summary{position:sticky;bottom:18px;z-index:40;margin-top:28px;background:var(--accent);color:#FFFFFF;border-radius:2px;padding:14px 16px 14px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 14px 40px rgba(0,0,0,.25);transform:translateY(20px);opacity:0;pointer-events:none;transition:opacity .5s,transform .5s}
+.summary.show{opacity:1;transform:none;pointer-events:auto}
+.summary small{display:block;color:#CDBFB5;font-size:.82rem}
+.summary .tot{font:400 1.7rem var(--serif);margin-right:14px}
+.summary .btn{background:#F7F1EB;color:var(--ink);--hov:var(--light);--hov-text:var(--ink)}
+.compare-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table.compare{width:100%;border-collapse:collapse;min-width:640px}
+.compare th,.compare td{padding:16px 18px;border-bottom:1px solid var(--line);text-align:center}
+.compare th:first-child,.compare td:first-child{text-align:left}
+.compare thead th{font:400 1.35rem/1.2 var(--serif);padding-top:24px}
+.compare thead th small{display:block;font:400 .95rem var(--sans);color:var(--muted);margin-top:4px}
+.compare tbody tr:last-child td{border-bottom:0}
+.compare .pc{background:var(--alt)}
+.compare .tk{width:20px;height:20px;fill:none;stroke:var(--accent);stroke-width:2.2;vertical-align:middle}
+.compare .no{color:var(--line);font-size:1.2rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.faq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,96px);align-items:start}
+.faq-pic{height:clamp(380px,38vw,540px);position:sticky;top:calc(var(--hh) + 30px)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font:400 clamp(1.2rem,2vw,1.45rem)/1.3 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .4s}
+.faq details[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
+.faq details p{color:var(--muted);max-width:60ch;margin:0 0 24px;animation:fadeup .5s both}
+
+/* schemes grid, same as the home page */
+.schemes-grid{--rowh:284px;--gap:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:var(--rowh);gap:var(--gap)}
+.schemes-grid figure{margin:0;position:relative;overflow:hidden;border-radius:2px;background:#E4D3C7}
+.schemes-grid img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.schemes-grid figure:hover img{transform:scale(1.06)}
+.schemes-grid figcaption{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);padding:8px 14px;border-radius:14px;color:#1D1A19;font:400 clamp(.8rem,1.15vw,.95rem)/1.3 var(--serif);background:rgba(247,241,235,.68);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 @media (max-width:768px){
-  :root{--rowh:300px}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  figcaption{left:8px;bottom:8px;max-width:calc(100% - 16px);padding:6px 10px;font-size:.75rem;border-radius:12px}
+  .schemes-grid{--rowh:300px;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .schemes-grid figcaption{left:8px;bottom:8px;max-width:calc(100% - 16px);padding:6px 10px;font-size:.75rem;border-radius:12px}
 }
-/* phone: square tiles in two columns */
 @media (max-width:480px){
-  :root{--rowh:165px}
+  .schemes-grid{--rowh:165px}
+}
+
+/* "let's get started" split: text left, photo right (desktop) */
+.cta-split.rev{grid-template-columns:.9fr 1.1fr;background:var(--bg);border-top:1px solid var(--line)}
+.cta-split.rev .cta-pic{order:2}
+.cta-split.rev h2{max-width:12ch}
+
+@media (max-width:980px){
+  .sec-head,.faq-grid{grid-template-columns:1fr}
+  .pkgs{grid-template-columns:1fr}
+  .pkg.pop{order:-1}
+  .disc{width:min(100%,320px)}
+  .ex-grid{grid-template-columns:1fr}
+  .faq-pic{position:static;height:300px}
+  .summary{bottom:84px}
+  .cta-split.rev .cta-pic{order:0}
 }
 </style>
 </head>
-<body>
-<div class="grid" id="grid" role="list" aria-label="Design schemes">
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg" alt="Living room with a white fireplace, cactus and window-pane mirror" width="640" height="640" loading="eager" decoding="async"><figcaption>A Victorian styled House to play into the original features</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg" alt="Home bar with blue velvet stools and glass shelving" width="640" height="640" loading="eager" decoding="async"><figcaption>Bar and Entertainment Space for the whole family</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg" alt="Navy kitchen with oak cabinets and a pull-out larder" width="640" height="640" loading="eager" decoding="async"><figcaption>The heart of any home, a luxurious kitchen</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg" alt="Bathroom with a freestanding bath and marble tiles" width="640" height="640" loading="eager" decoding="async"><figcaption>Family Bathroom with feature floating bath</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg" alt="Bedroom with dark floral wallpaper and a crystal chandelier" width="640" height="640" loading="lazy" decoding="async"><figcaption>Cosy Bedroom</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg" alt="Loft bedroom with a sloping ceiling and skylight" width="640" height="640" loading="lazy" decoding="async"><figcaption>Bedroom in the Loft</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg" alt="Loft home office with a sloping ceiling and linear pendant lights" width="640" height="640" loading="lazy" decoding="async"><figcaption>Compact Home Office</figcaption></figure>
-    <figure><img src="https://static.wixstatic.com/media/ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg" alt="Hallway with a staircase and a round wooden mirror" width="640" height="640" loading="lazy" decoding="async"><figcaption>Impressive hallway which welcomes you in</figcaption></figure>
-</div>
+<body class="has-hero">
+
+<header class="site-header" id="header">
+  <div class="wrap header-in">
+    <a class="brand" href="index.html" aria-label="Rosa Rose Interior Design Studio, home"><span class="wm"><b>Rosa · Rose</b><i>Interior design studio</i></span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="index.html#steps">How it works</a>
+      <a class="link" href="#packages" aria-current="page">Design services</a>
+      <a class="link" href="index.html#projects">Projects</a>
+      <a class="link" href="#contact">Contact</a>
+      <a class="btn btn-dark" href="#contact">Enquire with us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Hero: same theme as the home page, lettering over the photo -->
+  <section class="hero over short" style="padding:0">
+    <div class="hero-media"><img class="hero-img" src="https://static.wixstatic.com/media/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg" alt="Home bar with navy velvet stools"></div>
+    <div class="hero-body">
+      <h1 aria-label="Explore our design options">
+        <span class="w" style="--d:0"><span>Explore</span></span>
+        <span class="w" style="--d:1"><span>our</span></span>
+        <span class="w" style="--d:2"><span>design</span></span>
+        <span class="w" style="--d:3"><span>options</span></span>
+      </h1>
+      <div class="rolling"><ul>
+        <li>Interior design packages, per room</li>
+        <li>Affordable interior design</li>
+        <li>Designing your perfect home</li>
+      </ul></div>
+      <div class="btn-row">
+        <a class="btn btn-cream" href="#packages">See the packages</a>
+        <a class="btn btn-ghost-light" href="#contact">Enquire with us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Packages -->
+  <section id="packages">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="reveal">Interior design packages, priced per room</h2>
+        <p class="lede reveal">Choose the level of support that suits your space and your budget.</p>
+      </div>
+      <div class="pkgs">
+        <article class="pkg reveal" data-io>
+          <div class="disc">
+            <div class="ph-img"><img src="https://static.wixstatic.com/media/c6d174_b7c2f95e2afd46159a824585c2ffaa65~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85,enc_auto/c6d174_b7c2f95e2afd46159a824585c2ffaa65~mv2.jpg" alt="Cream living room"></div>
+            <svg viewBox="0 0 400 400" aria-hidden="true">
+              <circle class="ring-dots" cx="200" cy="200" r="190"/>
+              <circle class="ring-line" cx="200" cy="200" r="134"/>
+              <path id="bp1" d="M 38,200 A 162,162 0 0 0 362,200" fill="none"/>
+              <text class="arc"><textPath href="#bp1" startOffset="50%" text-anchor="middle">Essentials · £299</textPath></text>
+              
+            </svg>
+          </div>
+          <div class="per">per room</div>
+          <div class="meter"><span>3 weeks support</span><div class="track"><div class="fill" style="--w:37.5%"></div></div></div>
+          <ul>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Scaled furniture layout</li>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Concept boards</li>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Shopping list: 5 key items</li>
+          </ul>
+          <button class="btn btn-line" type="button" data-pkg="Essentials" data-price="299" aria-pressed="false">Choose Essentials</button>
+        </article>
+        <article class="pkg pop reveal" data-io>
+          <div class="disc">
+            <div class="ph-img"><img src="https://static.wixstatic.com/media/c6d174_6ffe7312963b42bfa78b3a0105b9a58b~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85,enc_auto/c6d174_6ffe7312963b42bfa78b3a0105b9a58b~mv2.jpg" alt="Living room with fireplace"></div>
+            <svg viewBox="0 0 400 400" aria-hidden="true">
+              <circle class="ring-dots" cx="200" cy="200" r="190"/>
+              <circle class="ring-line" cx="200" cy="200" r="134"/>
+              <path id="bp2" d="M 38,200 A 162,162 0 0 0 362,200" fill="none"/>
+              <text class="arc"><textPath href="#bp2" startOffset="50%" text-anchor="middle">Deluxe · £599</textPath></text>
+              <path id="tp2" d="M 54,200 A 146,146 0 0 1 346,200" fill="none"/><text class="arc top"><textPath href="#tp2" startOffset="50%" text-anchor="middle">Most popular</textPath></text>
+            </svg>
+          </div>
+          <div class="per">per room</div>
+          <div class="meter"><span>6 weeks design support</span><div class="track"><div class="fill" style="--w:75%"></div></div></div>
+          <div class="plus">Everything from Essentials plus:</div>
+          <ul>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Paint selection, including drawing key</li>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Flooring selection, including drawing key</li>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Feature light, including drawing key</li>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Full shopping list</li>
+          </ul>
+          <button class="btn btn-dark" type="button" data-pkg="Deluxe" data-price="599" aria-pressed="false">Choose Deluxe</button>
+        </article>
+        <article class="pkg reveal" data-io>
+          <div class="disc">
+            <div class="ph-img"><img src="https://static.wixstatic.com/media/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85,enc_auto/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg" alt="Bedroom with floral wallpaper"></div>
+            <svg viewBox="0 0 400 400" aria-hidden="true">
+              <circle class="ring-dots" cx="200" cy="200" r="190"/>
+              <circle class="ring-line" cx="200" cy="200" r="134"/>
+              <path id="bp3" d="M 38,200 A 162,162 0 0 0 362,200" fill="none"/>
+              <text class="arc"><textPath href="#bp3" startOffset="50%" text-anchor="middle">Bespoke · £1099</textPath></text>
+              
+            </svg>
+          </div>
+          <div class="per">per room</div>
+          <div class="meter"><span>8 weeks design support</span><div class="track"><div class="fill" style="--w:100%"></div></div></div>
+          <div class="plus">Everything from Essentials and Deluxe plus:</div>
+          <ul>
+            <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>3D visuals</li>
+          </ul>
+          <button class="btn btn-line" type="button" data-pkg="Bespoke" data-price="1099" aria-pressed="false">Choose Bespoke</button>
+        </article>
+      </div>
+
+      <!-- Multi-room discount banner, dark colour -->
+      <div class="promo reveal" role="note">
+        <p class="promo-main">Multi-room discount available</p>
+      </div>
+
+      <!-- Optional extras, in their own box -->
+      <div class="extras reveal" id="extras">
+        <div class="extras-head">
+          <h3>Optional extras</h3>
+          <p>Add any of these to your package.</p>
+        </div>
+        <div class="ex-grid">
+          <div class="ex">
+            <div class="frame"><img src="https://static.wixstatic.com/media/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg/v1/fill/w_700,h_420,al_c,q_85,enc_auto/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg" alt="Hallway and stairs"></div>
+            <div class="ex-body">
+              <b>Site survey</b><small>We can measure the space for you.</small>
+              <div class="ex-foot"><span class="p">£149</span><button class="btn btn-line" type="button" data-extra="Site survey" data-price="149" aria-pressed="false">Add</button></div>
+            </div>
+          </div>
+          <div class="ex">
+            <div class="frame"><img src="https://static.wixstatic.com/media/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg/v1/fill/w_700,h_420,al_c,q_85,enc_auto/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg" alt="Fitted kitchen joinery"></div>
+            <div class="ex-body">
+              <b>Joinery drawings</b><small>We create detailed elevations and drawings.</small>
+              <div class="ex-foot"><span class="p">£179</span><button class="btn btn-line" type="button" data-extra="Joinery drawings" data-price="179" aria-pressed="false">Add</button></div>
+            </div>
+          </div>
+          <div class="ex">
+            <div class="frame"><img src="https://static.wixstatic.com/media/c6d174_b131ffa005fd40d9bc454cb59b73ecd3~mv2.jpeg/v1/fill/w_700,h_420,al_c,q_85,enc_auto/c6d174_b131ffa005fd40d9bc454cb59b73ecd3~mv2.jpeg" alt="Styled console with accessories"></div>
+            <div class="ex-body">
+              <b>Finishing touches, styling and accessories</b><small>Including links and product placement</small>
+              <div class="ex-foot"><span class="p">£199</span><button class="btn btn-line" type="button" data-extra="Finishing touches, styling and accessories" data-price="199" aria-pressed="false">Add</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary" id="summary" role="status" aria-live="polite">
+        <div><span id="sumText">Your selection</span><small>Packages are priced per room</small></div>
+        <div style="display:flex;align-items:center"><span class="tot" id="sumTot">£0</span><a class="btn" href="#contact" id="sumGo">Request this</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Let's get started: text beside the photo, with call to action -->
+  <section class="cta-split rev" id="start">
+    <div class="cta-pic frame clip"><img data-speed="0.08" src="https://static.wixstatic.com/media/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg" alt="Edwardian living room designed by Rosa Rose"></div>
+    <div class="cta-text reveal">
+      <h2>Let’s get started together now</h2>
+      <p>Tell us about your home and the rooms you would like to transform, and we will take it from there.</p>
+      <div class="btn-row"><a class="btn btn-dark" href="#contact">Get started</a></div>
+    </div>
+  </section>
+
+  <!-- Banner: her sentence over the photo -->
+  <section class="banner">
+    <div class="banner-pic"><img src="https://static.wixstatic.com/media/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg/v1/fill/w_2400,h_1300,al_c,q_85,enc_auto/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg" alt="Bright loft dining space designed by Rosa Rose"></div>
+    <div class="wrap banner-text"><p class="reveal">Your dedicated designer will work together with you to create a space that’s unique to you, beautifully designed and a space to enhance how you live.</p></div>
+  </section>
+
+  <!-- 3. Compare -->
+  <section style="background:var(--alt)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="reveal">Compare the packages</h2>
+        <p class="lede reveal">What's included in each package, side by side.</p>
+      </div>
+      <div class="compare-wrap reveal">
+        <table class="compare">
+          <thead><tr>
+            <th scope="col"><span class="sr">Feature</span></th>
+            <th scope="col">Essentials<small>£299 per room</small></th>
+            <th scope="col" class="pc">Deluxe<small>£599 per room</small></th>
+            <th scope="col">Bespoke<small>£1099 per room</small></th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Design support</td><td>3 weeks</td><td class="pc">6 weeks</td><td>8 weeks</td></tr>
+            <tr><td>Scaled furniture layout</td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td class="pc"><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td></tr>
+            <tr><td>Concept boards</td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td class="pc"><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td></tr>
+            <tr><td>Shopping list</td><td>5 key items</td><td class="pc">Full list</td><td>Full list</td></tr>
+            <tr><td>Paint selection, including drawing key</td><td><span class="no" aria-hidden="true">–</span><span class="sr">Not included</span></td><td class="pc"><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td></tr>
+            <tr><td>Flooring selection, including drawing key</td><td><span class="no" aria-hidden="true">–</span><span class="sr">Not included</span></td><td class="pc"><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td></tr>
+            <tr><td>Feature light, including drawing key</td><td><span class="no" aria-hidden="true">–</span><span class="sr">Not included</span></td><td class="pc"><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td></tr>
+            <tr><td>3D visuals</td><td><span class="no" aria-hidden="true">–</span><span class="sr">Not included</span></td><td class="pc"><span class="no" aria-hidden="true">–</span><span class="sr">Not included</span></td><td><svg class="tk" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg><span class="sr">Included</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Schemes: same grid as the home page -->
+  <section style="padding-bottom:clamp(60px,7vw,100px)">
+    <div class="wrap">
+      <h2 class="reveal" style="margin-bottom:40px">Schemes we've designed</h2>
+      <div class="schemes-grid" role="list" aria-label="Design schemes">
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg" alt="Living room with a white fireplace, cactus and window-pane mirror" width="640" height="640" loading="eager" decoding="async"><figcaption>A Victorian styled House to play into the original features</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg" alt="Home bar with blue velvet stools and glass shelving" width="640" height="640" loading="eager" decoding="async"><figcaption>Bar and Entertainment Space for the whole family</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg" alt="Navy kitchen with oak cabinets and a pull-out larder" width="640" height="640" loading="eager" decoding="async"><figcaption>The heart of any home, a luxurious kitchen</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg" alt="Bathroom with a freestanding bath and marble tiles" width="640" height="640" loading="eager" decoding="async"><figcaption>Family Bathroom with feature floating bath</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg" alt="Bedroom with dark floral wallpaper and a crystal chandelier" width="640" height="640" loading="lazy" decoding="async"><figcaption>Cosy Bedroom</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg" alt="Loft bedroom with a sloping ceiling and skylight" width="640" height="640" loading="lazy" decoding="async"><figcaption>Bedroom in the Loft</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg" alt="Loft home office with a sloping ceiling and linear pendant lights" width="640" height="640" loading="lazy" decoding="async"><figcaption>Compact Home Office</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg" alt="Hallway with a staircase and a round wooden mirror" width="640" height="640" loading="lazy" decoding="async"><figcaption>Impressive hallway which welcomes you in</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section style="background:var(--alt)">
+    <div class="wrap faq-grid">
+      <div class="frame clip faq-pic"><img src="https://static.wixstatic.com/media/ccfa30_749d47f733f246dbb69e39fa240c2bc5~mv2.png/v1/fill/w_1100,h_1300,al_c,q_85,enc_auto/Interior%20Design_edited.png" alt="Living room with an orange sofa and a copper coffee table"></div>
+      <div>
+        <h2 class="reveal" style="margin-bottom:26px">Questions about the packages</h2>
+        <div class="faq reveal">
+          <details><summary>Are your prices per room?</summary><p>Yes. Each package is priced per room, so you only pay for the spaces you want designed.</p></details>
+          <details><summary>How long does design support last?</summary><p>Essentials includes 3 weeks of support, Deluxe includes 6 weeks and Bespoke includes 8 weeks.</p></details>
+          <details><summary>Do I need to measure the room myself?</summary><p>We need some photographs and measurements of the space. Don't worry about the measuring, as we have a handy guide to show you how and what we need. If you'd rather we measured, add a site survey for £149.</p></details>
+          <details><summary>What's in the shopping list?</summary><p>Essentials includes a shopping list of 5 key items. Deluxe and Bespoke include a full shopping list for your scheme.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Closing call to action: photo beside the text -->
+  <section class="cta-split">
+    <div class="cta-pic frame clip"><img data-speed="0.08" src="https://static.wixstatic.com/media/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg" alt="Games room with pool table"></div>
+    <div class="cta-text reveal">
+      <h2>Not sure which package suits you?</h2>
+      <p>Tell us about your room and we'll point you to the right one.</p>
+      <div class="btn-row"><a class="btn btn-dark" href="#contact">Enquire with us</a></div>
+    </div>
+  </section>
+</main>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <h2>Get in touch</h2>
+      <p class="lede" style="margin-top:14px">We would love to discuss your project.</p>
+      <p style="margin-top:26px"><a href="tel:+447861499710">07861 499710</a></p>
+      <p><a href="mailto:rosarosedesigninteriors@outlook.com">rosarosedesigninteriors@outlook.com</a></p>
+      <p style="margin-top:18px"><a class="wa-btn" href="https://wa.me/447861499710" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.5A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.2 15l-.3-.18-3.1.89.9-3-.2-.32A8.1 8.1 0 0 1 12.04 3.8zm-3.3 4.1c-.2 0-.5.07-.75.35-.25.27-.97.95-.97 2.3 0 1.37 1 2.7 1.13 2.88.14.18 1.95 3.1 4.8 4.2 2.4.93 2.88.75 3.4.7.52-.05 1.68-.69 1.92-1.35.24-.66.24-1.23.17-1.35-.07-.12-.26-.2-.55-.34s-1.68-.83-1.94-.92c-.26-.1-.45-.14-.64.14-.19.28-.74.92-.9 1.1-.17.2-.33.22-.62.07-.28-.14-1.2-.44-2.28-1.4-.85-.76-1.42-1.7-1.58-1.98-.17-.28-.02-.44.12-.58.13-.12.28-.33.43-.5.14-.17.19-.28.28-.47.1-.2.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49z"/></svg> Message us on WhatsApp</a></p>
+      <p class="small">Greater Manchester, UK</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/rosa_rose_design/">Instagram</a>
+        <a href="https://uk.pinterest.com/rosaroseinteriordesignltd/">Pinterest</a>
+        <a href="https://www.linkedin.com/company/rosa-rose-interior-design/">LinkedIn</a>
+        <a href="https://www.facebook.com/people/Rosa-Rose-Interior-Design/61584827307076/">Facebook</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form id="contactForm" novalidate>
+        <div class="row2">
+          <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <div class="row2">
+          <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
+          <label>Package<select name="pkg" id="pkgSelect"><option>Not sure yet</option><option>Essentials</option><option>Deluxe</option><option>Bespoke</option><option>Home styling</option></select></label>
+        </div>
+        <fieldset class="extras-pick"><legend>Optional extras (tick any you would like)</legend>
+          <label class="chk"><input type="checkbox" name="extra" value="Site survey"><span>Site survey</span></label>
+          <label class="chk"><input type="checkbox" name="extra" value="Joinery drawings"><span>Joinery drawings</span></label>
+          <label class="chk"><input type="checkbox" name="extra" value="Finishing touches, styling and accessories"><span>Finishing touches, styling and accessories</span></label>
+        </fieldset>
+        <label>Tell us about your project<textarea name="msg" id="msg"></textarea></label>
+        <div><button class="btn btn-dark" type="submit">Enquire with us</button></div>
+      </form>
+      <div class="thanks" id="thanks">Thanks for submitting! We'll be in touch soon.</div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="badge foot-logo"><img src="PASTE_LOGO_DATA_URI_HERE" alt=""></div>
+      <p class="small">Affordable interior design for residential and commercial projects.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#steps">How it works</a></li>
+        <li><a href="design-services.html">Design services</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="https://www.rosarosedesign.com/terms-conditions">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Keep updated about future offers and design tips</h4>
+      <form class="sub" id="subForm" novalidate>
+        <input type="email" placeholder="Your email" aria-label="Email address">
+        <button class="btn btn-dark" type="submit">Sign up</button>
+      </form>
+      <p class="small" id="subThanks" style="margin-top:10px;display:none">Thanks for submitting!</p>
+    </div>
+  </div>
+  <div class="wrap small" style="margin-top:36px">© 2026 Rosa Rose Design Ltd. Greater Manchester, UK</div>
+</footer>
+<button class="fab chat" type="button" data-chat aria-label="Chat with us" aria-expanded="false" aria-controls="chatPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 10.5h8"/></svg></button>
+<div class="mbar"><button class="btn btn-line msg" type="button" data-chat aria-label="Chat with us" aria-expanded="false" aria-controls="chatPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 10.5h8"/></svg></button><a class="btn btn-dark" href="#contact">Enquire with us</a></div>
+<section class="chat-panel" id="chatPanel" hidden aria-label="Chat with Rosa Rose Design">
+  <div class="chat-head"><b>Chat with us</b><button class="chat-x" type="button" aria-label="Close chat">&times;</button></div>
+  <div class="chat-body"><div class="chat-msg">Hi, how can we help with your home today?</div></div>
+  <form class="chat-form" id="chatForm" novalidate>
+    <input type="text" placeholder="Your name" aria-label="Your name">
+    <input type="email" placeholder="Your email" aria-label="Your email">
+    <textarea placeholder="Write your message" aria-label="Your message"></textarea>
+    <button class="btn btn-dark" type="submit">Send</button>
+  </form>
+  <div class="chat-thanks" id="chatThanks">Thanks for your message. We'll reply soon.</div>
+</section>
+
 <script>
-/* The eight schemes above are the default, so the grid always shows.
-   Once Wix sends the list from the DesignSchemes collection, the grid is rebuilt from it,
-   so Rosa can change photos and descriptions, reorder, add or remove schemes in the CMS. */
 (function(){
-  var grid = document.getElementById('grid');
-  if (!grid) { return; }
-  var ID_OK = /^[A-Za-z0-9_~.-]+$/;
-  var BASE = 'https://static.wixstatic.com/media/';
-  var currentSig = "ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg~A Victorian styled House to play into the original features|ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg~Bar and Entertainment Space for the whole family|ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg~The heart of any home, a luxurious kitchen|ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg~Family Bathroom with feature floating bath|ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg~Cosy Bedroom|ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg~Bedroom in the Loft|ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg~Compact Home Office|ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg~Impressive hallway which welcomes you in";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce) document.documentElement.classList.add('anim');
 
-  function esc(s){
-    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
+  /* header state, floating call button */
+  var header = document.getElementById('header');
+  var fab = document.querySelector('.fab');
+  var hero = document.querySelector('.hero');
+  function onScroll(){
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    if(fab) fab.classList.toggle('show', window.scrollY > (hero ? hero.offsetHeight * 0.6 : 300));
   }
-  function srcFor(id){ return BASE + id + '/v1/fill/w_640,h_640,al_c,q_80,enc_auto/' + id; }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  window.addEventListener('message', function(e){
-    var d = e.data;
-    if (!d || d.type !== 'schemes' || !Array.isArray(d.items)) { return; }
-    var list = d.items.filter(function(it){
-      return it && typeof it.id === 'string' && ID_OK.test(it.id);
-    }).slice(0, 24);
-    if (!list.length) { return; }
-    var sig = list.map(function(it){ return it.id + '~' + (it.caption || ''); }).join('|');
-    if (sig === currentSig) { return; }
-    currentSig = sig;
-    grid.innerHTML = list.map(function(it, n){
-      var cap = String(it.caption || '').replace(/\s+/g, ' ').trim().slice(0, 120);
-      var alt = String(it.alt || cap).replace(/\s+/g, ' ').trim().slice(0, 160);
-      return '<figure><img src="' + srcFor(it.id) + '" alt="' + esc(alt) + '" width="640" height="640" loading="' +
-        (n < 4 ? 'eager' : 'lazy') + '" decoding="async">' + (cap ? '<figcaption>' + esc(cap) + '</figcaption>' : '') + '</figure>';
-    }).join('');
+  /* mobile menu */
+  var nav = document.getElementById('nav'), menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', function(){ var o = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.addEventListener('click', function(e){ if(e.target.closest('a')){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); } });
+
+  /* reveals and image wipes */
+  var items = document.querySelectorAll('.reveal, .clip, .slide-l, .slide-r, [data-io]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in','in-view'); io.unobserve(en.target); } });
+    }, {threshold:.15, rootMargin:'0px 0px -8% 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  } else items.forEach(function(el){ el.classList.add('in','in-view'); });
+
+  /* gentle parallax */
+  var par = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
+  if(!reduce && par.length){
+    var ticking = false;
+    function para(){
+      var vh = window.innerHeight;
+      var wide = window.innerWidth > 900;
+      par.forEach(function(el){
+        if(!wide){ el.style.transform = ''; return; }
+        var r = el.getBoundingClientRect();
+        if(r.bottom < -200 || r.top > vh + 200) return;
+        var s = parseFloat(el.getAttribute('data-speed'));
+        el.style.transform = 'translate3d(0,' + ((r.top + r.height/2 - vh/2) * s).toFixed(1) + 'px,0)';
+      });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(para); } }, {passive:true});
+    window.addEventListener('resize', para); para();
+  }
+
+  /* rolling hero line */
+  document.querySelectorAll('.rolling ul').forEach(function(track){
+    var n = track.children.length, idx = 0;
+    track.appendChild(track.children[0].cloneNode(true));
+    if(reduce) return;
+    setInterval(function(){
+      idx++;
+      track.style.transition = 'transform .8s cubic-bezier(.65,0,.25,1)';
+      track.style.transform = 'translateY(' + (-idx * 1.35) + 'em)';
+      if(idx === n){ setTimeout(function(){ track.style.transition = 'none'; track.style.transform = 'translateY(0)'; idx = 0; }, 850); }
+    }, 2800);
   });
 
-  /* tell the Wix page this embed is ready to receive the list */
-  try { window.parent.postMessage({ type: 'ready' }, '*'); } catch (err) {}
+  /* filmstrip: duplicate the photos so the loop is seamless */
+  document.querySelectorAll('.strip-track').forEach(function(t){
+    Array.prototype.slice.call(t.children).forEach(function(f){ var c = f.cloneNode(true); c.setAttribute('aria-hidden','true'); t.appendChild(c); });
+  });
+
+  /* forms (mockup only) */
+  var cf = document.getElementById('contactForm');
+  if(cf) cf.addEventListener('submit', function(e){ e.preventDefault(); cf.style.display = 'none'; document.getElementById('thanks').classList.add('show'); });
+  var sf = document.getElementById('subForm');
+  if(sf) sf.addEventListener('submit', function(e){ e.preventDefault(); document.getElementById('subThanks').style.display = 'block'; });
+})();
+
+(function(){
+  var p=document.getElementById('chatPanel'); if(!p) return;
+  var btns=Array.prototype.slice.call(document.querySelectorAll('[data-chat]'));
+  function set(open){ p.hidden=!open; btns.forEach(function(b){ b.setAttribute('aria-expanded', open?'true':'false'); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ set(p.hidden); }); });
+  p.querySelector('.chat-x').addEventListener('click', function(){ set(false); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !p.hidden) set(false); });
+  var f=document.getElementById('chatForm');
+  f.addEventListener('submit', function(e){ e.preventDefault(); f.style.display='none'; document.getElementById('chatThanks').style.display='block'; });
+})();
+
+(function(){
+  var sel = {pkg:null, price:0, extras:{}};
+  var summary = document.getElementById('summary'), sumText = document.getElementById('sumText'), sumTot = document.getElementById('sumTot');
+  function refresh(){
+    var names = [], total = 0;
+    if(sel.pkg){ names.push(sel.pkg); total += sel.price; }
+    Object.keys(sel.extras).forEach(function(k){ names.push(k); total += sel.extras[k]; });
+    if(!names.length){ summary.classList.remove('show'); return; }
+    sumText.textContent = names.join(' + ');
+    sumTot.textContent = '£' + total.toLocaleString('en-GB');
+    summary.classList.add('show');
+  }
+  document.querySelectorAll('[data-pkg]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var was = b.getAttribute('aria-pressed') === 'true';
+      document.querySelectorAll('[data-pkg]').forEach(function(x){ x.setAttribute('aria-pressed','false'); x.textContent = 'Choose ' + x.getAttribute('data-pkg'); });
+      if(!was){ b.setAttribute('aria-pressed','true'); b.textContent = b.getAttribute('data-pkg') + ' selected'; sel.pkg = b.getAttribute('data-pkg'); sel.price = +b.getAttribute('data-price'); }
+      else { sel.pkg = null; sel.price = 0; }
+      refresh();
+    });
+  });
+  document.querySelectorAll('[data-extra]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var on = b.getAttribute('aria-pressed') !== 'true', k = b.getAttribute('data-extra');
+      b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.textContent = on ? 'Added' : 'Add';
+      if(on) sel.extras[k] = +b.getAttribute('data-price'); else delete sel.extras[k];
+      refresh();
+    });
+  });
+  document.getElementById('sumGo').addEventListener('click', function(){
+    var s = document.getElementById('pkgSelect');
+    if(sel.pkg){ for(var i = 0; i < s.options.length; i++){ if(s.options[i].text === sel.pkg) s.selectedIndex = i; } }
+    var ex = Object.keys(sel.extras), parts = [];
+    if(sel.pkg) parts.push('the ' + sel.pkg + ' package');
+    if(ex.length) parts.push(ex.join(', '));
+    document.querySelectorAll('input[name="extra"]').forEach(function(cb){ cb.checked = ex.indexOf(cb.value) > -1; });
+    if(parts.length) document.getElementById('msg').value = "I'd like to request " + parts.join(' with ') + '.';
+  });
 })();
 </script>
 </body>

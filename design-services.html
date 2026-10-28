@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Design services | Rosa Rose Design (services page mockup)</title>
+<title>Design services | Rosa Rose Design (services page mockup v4)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Marcellus&display=swap" rel="stylesheet">
@@ -13,6 +13,8 @@
   --accent:#6F5D52; --accent-dark:#54463D; --light:#E4D3C7; --ink:#1D1A19;
   --serif:"Marcellus",Georgia,"Times New Roman",serif;
   --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  /* CHANGE 3: font used for the banner sentence. Set this to the same font as the numbers on the home page steps. */
+  --num:"Marcellus",Georgia,"Times New Roman",serif;
   --hh:94px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -57,7 +59,7 @@ section{padding:clamp(70px,9vw,130px) 0}
 .nav .btn{margin-left:12px;padding:.72em 1.3em}
 .menu-btn{display:none;background:none;border:1px solid currentColor;border-radius:999px;padding:.65em 1.1em;color:inherit;font:400 .92rem var(--sans);cursor:pointer}
 
-/* hero: split layout, image fully visible, text beside it on cream */
+/* hero */
 .hero{display:grid;grid-template-columns:minmax(340px,.82fr) 1.18fr;min-height:calc(100svh - var(--hh));background:var(--bg);color:var(--ink);overflow:hidden}
 .hero.short{min-height:74svh}
 .hero-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,100px) clamp(24px,5vw,84px)}
@@ -74,10 +76,9 @@ section{padding:clamp(70px,9vw,130px) 0}
 .hero .btn-row{animation:fadeup 1s 1.1s both}
 @keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-/* image reveal + parallax */
+/* image reveal */
 .frame{position:relative;overflow:hidden;border-radius:2px;background:var(--light)}
 .frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
-/* the wipe runs on the image, not the frame, so the scroll trigger can see the frame */
 .anim .clip{background:transparent}
 .anim .clip img{clip-path:inset(100% 0 0 0);transform:scale(1.18)}
 .anim .clip.in img{clip-path:inset(0 0 0 0);transform:scale(1);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1),transform 1.4s cubic-bezier(.2,.7,.2,1)}
@@ -85,26 +86,15 @@ section{padding:clamp(70px,9vw,130px) 0}
 .reveal{transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .anim .reveal{opacity:0;transform:translateY(26px)}
 .anim .reveal.in{opacity:1;transform:none}
-[data-speed]{will-change:transform}
 
-/* filmstrip of project photos */
-.strip{overflow:hidden;padding:8px 0}
-.strip-track{display:flex;gap:16px;width:max-content;animation:film 70s linear infinite}
-.strip:hover .strip-track{animation-play-state:paused}
-.strip figure{margin:0;width:clamp(240px,24vw,340px);height:clamp(240px,24vw,340px);position:relative;overflow:hidden;border-radius:2px;flex:none}
-.strip img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.strip figure:hover img{transform:scale(1.07)}
-.strip figcaption{position:absolute;left:12px;bottom:12px;padding:8px 16px;color:var(--ink);font:400 1rem var(--serif);background:rgba(247,241,235,.96);border-radius:999px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
-.strip figure:hover figcaption{opacity:1;transform:none}
-@keyframes film{to{transform:translateX(-50%)}}
-
-/* closing call to action: photo and text side by side, nothing on top of the photo */
-.cta-split{display:grid;grid-template-columns:1.1fr .9fr;background:var(--alt);padding:0;overflow:hidden}
-.cta-split .cta-pic{position:relative;overflow:hidden;min-height:clamp(380px,40vw,560px)}
-.cta-split .cta-pic img{position:absolute;left:0;right:0;top:-12%;width:100%;height:124%;object-fit:cover}
-.cta-split .cta-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,96px)}
-.cta-split h2{max-width:14ch;margin-bottom:16px}
-.cta-split p{color:var(--muted);margin-bottom:28px;max-width:42ch}
+/* schemes: static grid, same look as the home page */
+.schemes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,17px)}
+.schemes-grid figure{margin:0;position:relative;overflow:hidden;border-radius:2px;aspect-ratio:375/355;background:var(--light)}
+.schemes-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.schemes-grid figure:hover img{transform:scale(1.05)}
+.schemes-grid figcaption{position:absolute;left:15px;right:15px;bottom:15px;padding:12px 16px;border-radius:18px;background:rgba(247,241,235,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--ink);font:400 clamp(.95rem,1.35vw,1.2rem)/1.3 var(--serif)}
+@media (max-width:980px){.schemes-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.schemes-grid{grid-template-columns:1fr}}
 
 /* contact + footer */
 .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,96px)}
@@ -158,7 +148,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 
-/* home hero: text over the photo */
+/* hero: text over the photo */
 .hero.over{display:block;position:relative;min-height:calc(100svh - var(--hh));color:#fff;background:#3a302a}
 .hero.over .hero-media{position:absolute;inset:0;min-height:0;order:0}
 .hero.over::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,15,12,.46),rgba(20,15,12,0) 48%);pointer-events:none;z-index:1}
@@ -169,26 +159,22 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .hero.over.short,.hero.over.short .hero-body{min-height:78svh}
 .hero.over.short h1{font-size:clamp(2.6rem,5.8vw,5rem)}
 
-/* images sliding in from each side */
-.anim .slide-l{opacity:0;transform:translateX(-90px)}
-.anim .slide-r{opacity:0;transform:translateX(90px)}
-.anim .slide-l.in,.anim .slide-r.in{opacity:1;transform:none;transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+
+/* CHANGE 9: hero text centred over the photo, one button */
+.hero.over.center .hero-body{align-items:center;justify-content:center;text-align:center}
+.hero.over.center h1{max-width:15ch;margin-inline:auto}
+.hero.over.center .rolling{margin:20px auto 30px}
+.hero.over.center .btn-row{justify-content:center}
+.hero.over.center::after{background:linear-gradient(to top,rgba(20,15,12,.5),rgba(20,15,12,.2) 60%,rgba(20,15,12,.2))}
+.hero.over.center h1,.hero.over.center .rolling{text-shadow:0 2px 30px rgba(0,0,0,.6)}
+
 /* WhatsApp */
-.fab.wa{background:#25D366;color:#fff}
-.fab.wa:hover{background:#1FB957}
 .contact-info a.wa-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--accent);border-radius:999px;padding:.6em 1.25em;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
 .contact-info a.wa-btn svg{width:20px;height:20px;color:var(--accent)}
 .contact-info a.wa-btn:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
 .contact-info a.wa-btn:hover svg{color:#FFFFFF}
-.mbar .msg.wa{background:#25D366;border-color:#25D366;color:#fff}
 
-/* phones: no scroll-drift, so circles and step text never overlap */
-@media (max-width:900px){
-  [data-speed]{transform:none!important}
-  .cta-split .cta-pic img{top:0;height:100%}
-}
-
-/* ordinary online chat box (replaces the floating WhatsApp button) */
+/* ordinary online chat box */
 .fab.chat{background:var(--accent);color:#FFFFFF;border:0;cursor:pointer;padding:0}
 .fab.chat:hover{background:var(--accent-dark)}
 .chat-panel{position:fixed;right:20px;bottom:92px;z-index:70;width:min(340px,calc(100vw - 32px));background:var(--bg);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.22);overflow:hidden;transform-origin:bottom right;animation:chatin .35s cubic-bezier(.2,.7,.2,1) both}
@@ -205,26 +191,29 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .chat-form .btn{justify-content:center}
 .chat-thanks{display:none;padding:0 16px 22px;font-size:.95rem}
 @media (max-width:980px){.chat-panel{bottom:calc(88px + env(safe-area-inset-bottom,0px));right:16px}}
+
 /* extras tick boxes in the enquiry form */
 .extras-pick{border:0;margin:0;padding:0;display:grid;gap:10px}
 .extras-pick legend{font-size:.92rem;color:var(--muted);padding:0;margin-bottom:8px}
 .chk{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--ink);cursor:pointer}
 .chk input{width:20px;height:20px;padding:0;accent-color:var(--accent);flex:none}
 
-/* home hero: centred and bigger */
-.hero.over.center .hero-body{align-items:center;justify-content:center;text-align:center;padding:clamp(60px,10vh,120px) 0}
-.hero.over.center h1{max-width:15ch;margin-inline:auto;font-size:clamp(3.1rem,8.4vw,7.4rem);line-height:1.02}
-.hero.over.center .rolling{margin:22px auto 34px;font-size:clamp(1.5rem,3.2vw,2.5rem)}
-.hero.over.center .btn-row{justify-content:center}
-.hero.over.center h1,.hero.over.center .rolling{text-shadow:0 2px 30px rgba(0,0,0,.6)}
-
 /* ---- design services page ---- */
-.banner{position:relative;min-height:clamp(420px,52vw,660px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0!important}
+
+/* CHANGE 3: banner, text centred over the photo */
+.banner{position:relative;min-height:clamp(420px,52vw,660px);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;padding:0!important}
 .banner-pic{position:absolute;inset:0}
 .banner-pic img{width:100%;height:100%;object-fit:cover}
-.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,15,12,.42),rgba(20,15,12,0) 50%);pointer-events:none}
-.banner-text{position:relative;z-index:2;padding-bottom:clamp(36px,7vw,84px)}
-.banner-text p{font:400 clamp(1.7rem,3.6vw,3.2rem)/1.22 var(--serif);max-width:26ch;margin:0;text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.banner::after{content:"";position:absolute;inset:0;background:rgba(20,15,12,.42);pointer-events:none}
+.banner-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:clamp(40px,6vw,80px) 0}
+.banner-text p{font:400 clamp(1.5rem,2.9vw,2.6rem)/1.35 var(--num);letter-spacing:.01em;max-width:34ch;margin:0 auto;text-shadow:0 2px 24px rgba(0,0,0,.55)}
+/* CHANGE 4: closing section is smaller; wording left, team photo right, nothing on top of the photo */
+.cta-split{display:grid;grid-template-columns:.9fr 1.1fr;background:#F0E7DF;padding:0;overflow:hidden}
+.cta-split .cta-pic{position:relative;overflow:hidden;min-height:clamp(240px,25vw,330px);background:#fff}
+.cta-split .cta-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta-split .cta-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,64px)}
+.cta-split h2{font-size:clamp(1.7rem,2.6vw,2.4rem);max-width:16ch;margin-bottom:12px}
+.cta-split p{color:var(--muted);margin-bottom:22px;max-width:42ch}
 .sec-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(36px,4vw,60px)}
 .sec-head p{margin:0}
 .pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px);align-items:stretch}
@@ -240,7 +229,6 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 @keyframes spin{to{transform:rotate(360deg)}}
 .ring-line{fill:none;stroke:var(--accent);stroke-width:1.2}
 .arc{font:400 25px var(--serif);letter-spacing:.14em;fill:var(--ink);text-transform:uppercase}
-.arc.top{font-size:21px;fill:var(--accent);letter-spacing:.22em}
 .per{font-size:.95rem;color:var(--muted);margin-bottom:18px}
 .meter{width:100%;margin-bottom:20px;text-align:left}
 .meter span{display:block;font-size:.95rem;margin-bottom:7px}
@@ -255,19 +243,45 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
 .pkg .btn{margin-top:auto}
 .btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 
-/* multi-room discount banner, dark colour */
-.promo{margin-top:clamp(28px,3.6vw,48px);background:var(--accent-dark);color:#fff;border-radius:2px;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:center;text-align:center}
-.promo p{margin:0}
-.promo .promo-main{font:400 clamp(1.05rem,2vw,1.4rem)/1.2 var(--serif);letter-spacing:.04em}
 
-.extras{margin-top:clamp(28px,3.6vw,48px);background:var(--alt);border:1px solid var(--line);border-radius:2px;padding:clamp(24px,4vw,48px)}
+/* CHANGE 8: animated intro box */
+.intro{padding:clamp(56px,6vw,90px) 0 0}
+.intro-box{position:relative;overflow:hidden;max-width:860px;margin:0 auto;background:#EFE6DB;border:1px solid var(--line);border-radius:2px;padding:clamp(28px,4vw,52px) clamp(24px,4vw,56px)}
+.intro-box::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform 1.2s .35s cubic-bezier(.2,.7,.2,1)}
+.intro-box.in::before{transform:scaleY(1)}
+.intro-box h2{font:italic 400 clamp(1.5rem,2.6vw,2.1rem)/1.28 var(--serif);margin-bottom:14px}
+.intro-box p{font-size:1.15rem;color:var(--muted);max-width:60ch;margin:0 0 22px}
+.intro-link{display:inline-flex;gap:.5em;font-size:1.05rem;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.intro-link span{transition:transform .4s}
+.intro-link:hover span{transform:translateX(6px)}
+
+/* CHANGE 6: multi-room discount circle pop-up */
+.promo{position:fixed;left:20px;bottom:20px;z-index:55;width:150px;height:150px;opacity:0;transform:scale(.7);pointer-events:none;transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.promo.show{opacity:1;transform:none;pointer-events:auto}
+.promo-circle{position:absolute;inset:0;display:grid;place-items:center;text-decoration:none}
+.promo-circle::before{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.22);transition:background .4s}
+.promo-circle:hover::before{background:var(--accent-dark)}
+.promo-circle svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.promo-circle span{position:relative;max-width:92px;text-align:center;color:#fff;font:400 .92rem/1.25 var(--serif)}
+.promo-x{position:absolute;top:0;right:0;z-index:2;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font:400 1.1rem/1 var(--sans);cursor:pointer;padding:0}
+@media (max-width:980px){.promo{left:12px;bottom:calc(86px + env(safe-area-inset-bottom,0px));width:124px;height:124px}.promo-circle span{font-size:.8rem;max-width:76px}}
+
+/* CHANGE 2: optional extras. Default is all light. Add class "tints" to .ex-grid to try three tints. */
+.extras{margin-top:clamp(40px,5vw,70px);background:var(--card);border:1px solid var(--line);border-radius:2px;padding:clamp(24px,4vw,48px)}
 .extras-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
 .extras-head p{margin:0;color:var(--muted)}
+/* CHANGE 5: moving dots under "Add any of these to your package" */
+.eh-right{display:inline-block}
+.dots{display:block;height:6px;margin-top:10px;background-image:radial-gradient(circle,var(--accent) 1.6px,transparent 1.7px);background-size:12px 6px;background-repeat:repeat-x;animation:dotsmove 2.4s linear infinite}
+@keyframes dotsmove{to{background-position:-12px 0}}
 .ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.ex{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .4s}
+.ex{--exbg:var(--alt);background:var(--exbg);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .4s}
 .ex:hover{border-color:var(--accent)}
-.ex .frame{width:170px;height:170px;border-radius:50%;margin:30px auto 10px;box-shadow:0 0 0 8px var(--card),0 0 0 9px var(--accent)}
+.ex .frame{width:170px;height:170px;border-radius:50%;margin:30px auto 10px;box-shadow:0 0 0 8px var(--exbg),0 0 0 9px var(--accent)}
 .ex:hover .frame img{transform:scale(1.06)}
+.ex-grid.tints .ex:nth-child(1){--exbg:#F8F3EE}
+.ex-grid.tints .ex:nth-child(2){--exbg:#F0E7DF}
+.ex-grid.tints .ex:nth-child(3){--exbg:#E4D3C7}
 .ex-body{padding:18px 22px 24px;display:flex;flex-direction:column;flex:1;text-align:center}
 .ex-body b{font:400 1.3rem/1.25 var(--serif);display:block;margin-bottom:6px}
 .ex-body small{color:var(--muted);font-size:.93rem;margin-bottom:16px}
@@ -299,26 +313,6 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
 .faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .4s}
 .faq details[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
 .faq details p{color:var(--muted);max-width:60ch;margin:0 0 24px;animation:fadeup .5s both}
-
-/* schemes grid, same as the home page */
-.schemes-grid{--rowh:284px;--gap:14px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:var(--rowh);gap:var(--gap)}
-.schemes-grid figure{margin:0;position:relative;overflow:hidden;border-radius:2px;background:#E4D3C7}
-.schemes-grid img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.schemes-grid figure:hover img{transform:scale(1.06)}
-.schemes-grid figcaption{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);padding:8px 14px;border-radius:14px;color:#1D1A19;font:400 clamp(.8rem,1.15vw,.95rem)/1.3 var(--serif);background:rgba(247,241,235,.68);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-@media (max-width:768px){
-  .schemes-grid{--rowh:300px;grid-template-columns:repeat(2,minmax(0,1fr))}
-  .schemes-grid figcaption{left:8px;bottom:8px;max-width:calc(100% - 16px);padding:6px 10px;font-size:.75rem;border-radius:12px}
-}
-@media (max-width:480px){
-  .schemes-grid{--rowh:165px}
-}
-
-/* "let's get started" split: text left, photo right (desktop) */
-.cta-split.rev{grid-template-columns:.9fr 1.1fr;background:var(--bg);border-top:1px solid var(--line)}
-.cta-split.rev .cta-pic{order:2}
-.cta-split.rev h2{max-width:12ch}
-
 @media (max-width:980px){
   .sec-head,.faq-grid{grid-template-columns:1fr}
   .pkgs{grid-template-columns:1fr}
@@ -327,7 +321,7 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
   .ex-grid{grid-template-columns:1fr}
   .faq-pic{position:static;height:300px}
   .summary{bottom:84px}
-  .cta-split.rev .cta-pic{order:0}
+  .ticker-cta{padding-left:48px}
 }
 </style>
 </head>
@@ -349,9 +343,9 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
 </header>
 
 <main>
-  <!-- 1. Hero: same theme as the home page, lettering over the photo -->
-  <section class="hero over short" style="padding:0">
-    <div class="hero-media"><img class="hero-img" src="https://static.wixstatic.com/media/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_f8513f168d144efa9914d5ce052c5fd8~mv2.jpg" alt="Home bar with navy velvet stools"></div>
+  <!-- 1. Hero -->
+  <section class="hero over short center" style="padding:0">
+    <div class="hero-media"><img class="hero-img" src="https://static.wixstatic.com/media/ccfa30_e982bdcbad34459091d7ee75734a8dbd~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/ccfa30_e982bdcbad34459091d7ee75734a8dbd~mv2.jpg" alt="Navy living room with built-in shelving and a patterned rug, designed by Rosa Rose"></div>
     <div class="hero-body">
       <h1 aria-label="Explore our design options">
         <span class="w" style="--d:0"><span>Explore</span></span>
@@ -366,7 +360,17 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
       </ul></div>
       <div class="btn-row">
         <a class="btn btn-cream" href="#packages">See the packages</a>
-        <a class="btn btn-ghost-light" href="#contact">Enquire with us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANGE 8: animated intro box above the packages (replaces the loft photo banner) -->
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-box reveal">
+        <h2>Struggling to pull your ideas together or need help with every design element?</h2>
+        <p>We can help, have a look at our packages below and get in touch if you require any more information.</p>
+        <a class="intro-link" href="#contact">Speak to one of our designers <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -387,7 +391,6 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
               <circle class="ring-line" cx="200" cy="200" r="134"/>
               <path id="bp1" d="M 38,200 A 162,162 0 0 0 362,200" fill="none"/>
               <text class="arc"><textPath href="#bp1" startOffset="50%" text-anchor="middle">Essentials · £299</textPath></text>
-              
             </svg>
           </div>
           <div class="per">per room</div>
@@ -402,12 +405,12 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
         <article class="pkg pop reveal" data-io>
           <div class="disc">
             <div class="ph-img"><img src="https://static.wixstatic.com/media/c6d174_6ffe7312963b42bfa78b3a0105b9a58b~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85,enc_auto/c6d174_6ffe7312963b42bfa78b3a0105b9a58b~mv2.jpg" alt="Living room with fireplace"></div>
+            <!-- CHANGE 1: "Most popular" arc text removed from this circle -->
             <svg viewBox="0 0 400 400" aria-hidden="true">
               <circle class="ring-dots" cx="200" cy="200" r="190"/>
               <circle class="ring-line" cx="200" cy="200" r="134"/>
               <path id="bp2" d="M 38,200 A 162,162 0 0 0 362,200" fill="none"/>
               <text class="arc"><textPath href="#bp2" startOffset="50%" text-anchor="middle">Deluxe · £599</textPath></text>
-              <path id="tp2" d="M 54,200 A 146,146 0 0 1 346,200" fill="none"/><text class="arc top"><textPath href="#tp2" startOffset="50%" text-anchor="middle">Most popular</textPath></text>
             </svg>
           </div>
           <div class="per">per room</div>
@@ -428,8 +431,7 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
               <circle class="ring-dots" cx="200" cy="200" r="190"/>
               <circle class="ring-line" cx="200" cy="200" r="134"/>
               <path id="bp3" d="M 38,200 A 162,162 0 0 0 362,200" fill="none"/>
-              <text class="arc"><textPath href="#bp3" startOffset="50%" text-anchor="middle">Bespoke · £1099</textPath></text>
-              
+              <text class="arc"><textPath href="#bp3" startOffset="50%" text-anchor="middle">Enhanced · £1099</textPath></text>
             </svg>
           </div>
           <div class="per">per room</div>
@@ -438,21 +440,20 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
           <ul>
             <li><svg class="tick" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>3D visuals</li>
           </ul>
-          <button class="btn btn-line" type="button" data-pkg="Bespoke" data-price="1099" aria-pressed="false">Choose Bespoke</button>
+          <button class="btn btn-line" type="button" data-pkg="Enhanced" data-price="1099" aria-pressed="false">Choose Enhanced</button>
         </article>
-      </div>
-
-      <!-- Multi-room discount banner, dark colour -->
-      <div class="promo reveal" role="note">
-        <p class="promo-main">Multi-room discount available</p>
       </div>
 
       <!-- Optional extras, in their own box -->
       <div class="extras reveal" id="extras">
         <div class="extras-head">
           <h3>Optional extras</h3>
-          <p>Add any of these to your package.</p>
+          <div class="eh-right">
+            <p>Add any of these to your package.</p>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
         </div>
+        <!-- CHANGE 2: all light by default. To try three different tints, change class="ex-grid" to class="ex-grid tints" -->
         <div class="ex-grid">
           <div class="ex">
             <div class="frame"><img src="https://static.wixstatic.com/media/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg/v1/fill/w_700,h_420,al_c,q_85,enc_auto/c6d174_ef9e9d34cea1401b97121626a6f08993~mv2.jpg" alt="Hallway and stairs"></div>
@@ -485,28 +486,16 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
     </div>
   </section>
 
-  <!-- Let's get started: text beside the photo, with call to action -->
-  <section class="cta-split rev" id="start">
-    <div class="cta-pic frame clip"><img data-speed="0.08" src="https://static.wixstatic.com/media/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg" alt="Edwardian living room designed by Rosa Rose"></div>
-    <div class="cta-text reveal">
-      <h2>Let’s get started together now</h2>
-      <p>Tell us about your home and the rooms you would like to transform, and we will take it from there.</p>
-      <div class="btn-row"><a class="btn btn-dark" href="#contact">Get started</a></div>
-    </div>
-  </section>
-
-  <!-- Banner: her sentence over the photo -->
-  <section class="banner">
-    <div class="banner-pic"><img src="https://static.wixstatic.com/media/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg/v1/fill/w_2400,h_1300,al_c,q_85,enc_auto/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg" alt="Bright loft dining space designed by Rosa Rose"></div>
-    <div class="wrap banner-text"><p class="reveal">Your dedicated designer will work together with you to create a space that’s unique to you, beautifully designed and a space to enhance how you live.</p></div>
-  </section>
-
   <!-- 3. Compare -->
   <section style="background:var(--alt)">
     <div class="wrap">
-      <div class="sec-head">
+      <!-- CHANGE 7: wording sits closer to the table, with moving dots under the line of text -->
+      <div class="sec-head" style="margin-bottom:clamp(14px,1.6vw,22px)">
         <h2 class="reveal">Compare the packages</h2>
-        <p class="lede reveal">What's included in each package, side by side.</p>
+        <div class="eh-right reveal">
+          <p class="lede">What's included in each package, side by side.</p>
+          <span class="dots" aria-hidden="true"></span>
+        </div>
       </div>
       <div class="compare-wrap reveal">
         <table class="compare">
@@ -514,7 +503,7 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
             <th scope="col"><span class="sr">Feature</span></th>
             <th scope="col">Essentials<small>£299 per room</small></th>
             <th scope="col" class="pc">Deluxe<small>£599 per room</small></th>
-            <th scope="col">Bespoke<small>£1099 per room</small></th>
+            <th scope="col">Enhanced<small>£1099 per room</small></th>
           </tr></thead>
           <tbody>
             <tr><td>Design support</td><td>3 weeks</td><td class="pc">6 weeks</td><td>8 weeks</td></tr>
@@ -531,19 +520,30 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
     </div>
   </section>
 
-  <!-- 4. Schemes: same grid as the home page -->
+  <!-- CHANGE 4: closing section sits between the compare table and the schemes. Wording left, team photo right.
+       Save Rosa's team photo next to this file as team-photo.jpg. Until then the games room photo shows. -->
+  <section class="cta-split">
+    <div class="cta-text reveal">
+      <h2>Let’s get started together</h2>
+      <p>Get in touch today for a free quotation to see how we can transform the way you live.</p>
+      <div class="btn-row"><a class="btn btn-dark" href="#contact">Get in touch</a></div>
+    </div>
+    <div class="cta-pic"><img src="team-photo.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg'" alt="The Rosa Rose design team"></div>
+  </section>
+
+  <!-- 4. Schemes: static grid like the home page (4 across, captions on the photos) -->
   <section style="padding-bottom:clamp(60px,7vw,100px)">
     <div class="wrap">
       <h2 class="reveal" style="margin-bottom:40px">Schemes we've designed</h2>
-      <div class="schemes-grid" role="list" aria-label="Design schemes">
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_22f79b058cd840dda87b755fc02c2d15~mv2.jpg" alt="Living room with a white fireplace, cactus and window-pane mirror" width="640" height="640" loading="eager" decoding="async"><figcaption>A Victorian styled House to play into the original features</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_b857245a25854edebca123cfca79cad4~mv2.jpg" alt="Home bar with blue velvet stools and glass shelving" width="640" height="640" loading="eager" decoding="async"><figcaption>Bar and Entertainment Space for the whole family</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_ad78092e88504de29dc501408ba97832~mv2.jpg" alt="Navy kitchen with oak cabinets and a pull-out larder" width="640" height="640" loading="eager" decoding="async"><figcaption>The heart of any home, a luxurious kitchen</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_50d1c7ec2fd44c2897b4ef3b19c5acea~mv2.jpg" alt="Bathroom with a freestanding bath and marble tiles" width="640" height="640" loading="eager" decoding="async"><figcaption>Family Bathroom with feature floating bath</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_ff79f4506ab24e8ba1e2d44ad13fb6b7~mv2.jpg" alt="Bedroom with dark floral wallpaper and a crystal chandelier" width="640" height="640" loading="lazy" decoding="async"><figcaption>Cosy Bedroom</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_760de4f7f4d84c149fb2f089a08d3741~mv2.jpg" alt="Loft bedroom with a sloping ceiling and skylight" width="640" height="640" loading="lazy" decoding="async"><figcaption>Bedroom in the Loft</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_bf10d69457374610bd0ae611c3531402~mv2.jpg" alt="Loft home office with a sloping ceiling and linear pendant lights" width="640" height="640" loading="lazy" decoding="async"><figcaption>Compact Home Office</figcaption></figure>
-      <figure><img src="https://static.wixstatic.com/media/ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg/v1/fill/w_640,h_640,al_c,q_80,enc_auto/ccfa30_3d71038cd269439f84867638e6f9bf06~mv2.jpg" alt="Hallway with a staircase and a round wooden mirror" width="640" height="640" loading="lazy" decoding="async"><figcaption>Impressive hallway which welcomes you in</figcaption></figure>
+      <div class="schemes-grid reveal">
+      <figure><img src="https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg" alt="Open-plan kitchen and dining"><figcaption>Kitchen and dining</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_68575c71836440d9915022d98d4e64f0~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_68575c71836440d9915022d98d4e64f0~mv2.jpg" alt="Newbuild living room scheme"><figcaption>Newbuild living room scheme</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_f38ab6c8cb824602a6fe96fe1bf7c049~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_f38ab6c8cb824602a6fe96fe1bf7c049~mv2.jpg" alt="Bathroom"><figcaption>Bathroom</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_b061c15d03cc4348b80450c02a9824f8~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_b061c15d03cc4348b80450c02a9824f8~mv2.jpg" alt="Snug"><figcaption>Snug</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_46616bf5ddcd4f4eb281669842201268~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_46616bf5ddcd4f4eb281669842201268~mv2.jpg" alt="Living room with fireplace"><figcaption>Living room</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_95545c0c00264a6b8d495561e1ab3315~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_95545c0c00264a6b8d495561e1ab3315~mv2.jpg" alt="Bathroom vanity"><figcaption>Bathroom</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg/v1/fill/w_760,h_920,al_c,q_85,enc_auto/c6d174_d208bed113f24b80a33b1bf26b2e4f59~mv2.jpg" alt="Edwardian living room scheme"><figcaption>Edwardian living room</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg/v1/fill/w_760,h_760,al_c,q_85,enc_auto/c6d174_886e968e1da3453fa9d0e406a9436aa8~mv2.jpg" alt="Loft dining"><figcaption>Loft dining</figcaption></figure>
       </div>
     </div>
   </section>
@@ -556,24 +556,15 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
         <h2 class="reveal" style="margin-bottom:26px">Questions about the packages</h2>
         <div class="faq reveal">
           <details><summary>Are your prices per room?</summary><p>Yes. Each package is priced per room, so you only pay for the spaces you want designed.</p></details>
-          <details><summary>How long does design support last?</summary><p>Essentials includes 3 weeks of support, Deluxe includes 6 weeks and Bespoke includes 8 weeks.</p></details>
+          <details><summary>How long does design support last?</summary><p>Essentials includes 3 weeks of support, Deluxe includes 6 weeks and Enhanced includes 8 weeks.</p></details>
           <details><summary>Do I need to measure the room myself?</summary><p>We need some photographs and measurements of the space. Don't worry about the measuring, as we have a handy guide to show you how and what we need. If you'd rather we measured, add a site survey for £149.</p></details>
-          <details><summary>What's in the shopping list?</summary><p>Essentials includes a shopping list of 5 key items. Deluxe and Bespoke include a full shopping list for your scheme.</p></details>
+          <details><summary>What's in the shopping list?</summary><p>Essentials includes a shopping list of 5 key items. Deluxe and Enhanced include a full shopping list for your scheme.</p></details>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Closing call to action: photo beside the text -->
-  <section class="cta-split">
-    <div class="cta-pic frame clip"><img data-speed="0.08" src="https://static.wixstatic.com/media/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_0a1052ae4ff34687b137abf59d01369c~mv2.jpg" alt="Games room with pool table"></div>
-    <div class="cta-text reveal">
-      <h2>Not sure which package suits you?</h2>
-      <p>Tell us about your room and we'll point you to the right one.</p>
-      <div class="btn-row"><a class="btn btn-dark" href="#contact">Enquire with us</a></div>
-    </div>
-  </section>
-</main>
+  </main>
 
 <section id="contact">
   <div class="wrap contact-grid">
@@ -599,7 +590,7 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
         </div>
         <div class="row2">
           <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
-          <label>Package<select name="pkg" id="pkgSelect"><option>Not sure yet</option><option>Essentials</option><option>Deluxe</option><option>Bespoke</option><option>Home styling</option></select></label>
+          <label>Package<select name="pkg" id="pkgSelect"><option>Not sure yet</option><option>Essentials</option><option>Deluxe</option><option>Enhanced</option><option>Home styling</option></select></label>
         </div>
         <fieldset class="extras-pick"><legend>Optional extras (tick any you would like)</legend>
           <label class="chk"><input type="checkbox" name="extra" value="Site survey"><span>Site survey</span></label>
@@ -616,7 +607,8 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
 <footer>
   <div class="wrap foot-grid">
     <div>
-      <div class="badge foot-logo"><img src="PASTE_LOGO_DATA_URI_HERE" alt=""></div>
+      <!-- Footer logo: save the logo file next to this page as logo.png (or paste the old image data back in here) -->
+      <div class="badge foot-logo"><img src="logo.png" alt=""></div>
       <p class="small">Affordable interior design for residential and commercial projects.</p>
     </div>
     <div>
@@ -640,6 +632,14 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
   </div>
   <div class="wrap small" style="margin-top:36px">© 2026 Rosa Rose Design Ltd. Greater Manchester, UK</div>
 </footer>
+<!-- CHANGE 6: multi-room discount as a circle pop-up (appears after a few seconds, can be closed) -->
+<aside class="promo" id="promo" aria-label="Multi-room discount">
+  <button class="promo-x" type="button" aria-label="Close">&times;</button>
+  <a class="promo-circle" href="#contact">
+    <svg viewBox="0 0 400 400" aria-hidden="true"><circle class="ring-dots" cx="200" cy="200" r="190"/></svg>
+    <span>Multi-room discount available</span>
+  </a>
+</aside>
 <button class="fab chat" type="button" data-chat aria-label="Chat with us" aria-expanded="false" aria-controls="chatPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 10.5h8"/></svg></button>
 <div class="mbar"><button class="btn btn-line msg" type="button" data-chat aria-label="Chat with us" aria-expanded="false" aria-controls="chatPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 10.5h8"/></svg></button><a class="btn btn-dark" href="#contact">Enquire with us</a></div>
 <section class="chat-panel" id="chatPanel" hidden aria-label="Chat with Rosa Rose Design">
@@ -659,7 +659,7 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduce) document.documentElement.classList.add('anim');
 
-  /* header state, floating call button */
+  /* header state, floating chat button */
   var header = document.getElementById('header');
   var fab = document.querySelector('.fab');
   var hero = document.querySelector('.hero');
@@ -675,33 +675,13 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
   nav.addEventListener('click', function(e){ if(e.target.closest('a')){ nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); } });
 
   /* reveals and image wipes */
-  var items = document.querySelectorAll('.reveal, .clip, .slide-l, .slide-r, [data-io]');
+  var items = document.querySelectorAll('.reveal, .clip, [data-io]');
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){
       es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in','in-view'); io.unobserve(en.target); } });
     }, {threshold:.15, rootMargin:'0px 0px -8% 0px'});
     items.forEach(function(el){ io.observe(el); });
   } else items.forEach(function(el){ el.classList.add('in','in-view'); });
-
-  /* gentle parallax */
-  var par = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
-  if(!reduce && par.length){
-    var ticking = false;
-    function para(){
-      var vh = window.innerHeight;
-      var wide = window.innerWidth > 900;
-      par.forEach(function(el){
-        if(!wide){ el.style.transform = ''; return; }
-        var r = el.getBoundingClientRect();
-        if(r.bottom < -200 || r.top > vh + 200) return;
-        var s = parseFloat(el.getAttribute('data-speed'));
-        el.style.transform = 'translate3d(0,' + ((r.top + r.height/2 - vh/2) * s).toFixed(1) + 'px,0)';
-      });
-      ticking = false;
-    }
-    window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(para); } }, {passive:true});
-    window.addEventListener('resize', para); para();
-  }
 
   /* rolling hero line */
   document.querySelectorAll('.rolling ul').forEach(function(track){
@@ -714,11 +694,6 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
       track.style.transform = 'translateY(' + (-idx * 1.35) + 'em)';
       if(idx === n){ setTimeout(function(){ track.style.transition = 'none'; track.style.transform = 'translateY(0)'; idx = 0; }, 850); }
     }, 2800);
-  });
-
-  /* filmstrip: duplicate the photos so the loop is seamless */
-  document.querySelectorAll('.strip-track').forEach(function(t){
-    Array.prototype.slice.call(t.children).forEach(function(f){ var c = f.cloneNode(true); c.setAttribute('aria-hidden','true'); t.appendChild(c); });
   });
 
   /* forms (mockup only) */
@@ -777,6 +752,12 @@ table.compare{width:100%;border-collapse:collapse;min-width:640px}
     document.querySelectorAll('input[name="extra"]').forEach(function(cb){ cb.checked = ex.indexOf(cb.value) > -1; });
     if(parts.length) document.getElementById('msg').value = "I'd like to request " + parts.join(' with ') + '.';
   });
+})();
+
+(function(){
+  var pr = document.getElementById('promo'); if(!pr) return;
+  setTimeout(function(){ pr.classList.add('show'); }, 4000);
+  pr.querySelector('.promo-x').addEventListener('click', function(){ pr.classList.remove('show'); });
 })();
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Design Advice | Rosa Rose Design (blog page mockup)</title>
+<title>Interiors Advice | Rosa Rose Design (interiors advice page mockup)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Marcellus&display=swap" rel="stylesheet">
@@ -237,40 +237,48 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
   .wm i{font-size:.54rem;letter-spacing:.3em}
 }
 
-/* ---- design advice (Wix Blog page) ---- */
-/* Everything below the hero copies what the Wix Blog "Post list" settings can do:
-   layout Side by side, colours, fonts, borders, corner radius, show/hide meta. */
-.blog-sec{padding:clamp(60px,7vw,100px) 0 clamp(70px,8vw,120px)}
-.blog-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.blog-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem)}
-.cat-menu{display:flex;gap:6px;flex-wrap:wrap}
-.cat-menu a{padding:.55em 1.2em;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.9rem;letter-spacing:.04em;color:var(--muted);transition:border-color .3s,color .3s,background .3s}
-.cat-menu a:hover{border-color:var(--accent);color:var(--accent)}
-.cat-menu a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:#FDFBF8}
-.posts{display:grid;gap:32px}
-.post{display:grid;grid-template-columns:50% 50%;background:var(--card);border:1px solid var(--line);border-radius:2px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .4s}
-.post:hover{border-color:var(--accent)}
-.post .pimg{position:relative;aspect-ratio:4/3;background:var(--light);overflow:hidden}
-.post .pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.post .pbody{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,56px)}
-.meta{display:flex;gap:10px;align-items:center;font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);margin-bottom:16px}
-.meta{flex-wrap:wrap}
-.meta span{white-space:nowrap}
-.meta i{width:4px;height:4px;border-radius:50%;background:currentColor;display:inline-block}
-.post h3{font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1.18;margin-bottom:14px;transition:color .3s}
-.post:hover h3{color:var(--accent)}
-.post p{color:var(--muted);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.post .more{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:.9rem;letter-spacing:.04em;color:var(--text)}
-.build-note{margin-top:40px;padding:20px 24px;border:1px dashed var(--accent);background:var(--alt);font-size:.92rem;color:var(--muted)}
-.build-note b{color:var(--text);font-weight:500}
+/* ---- interiors advice (normal Studio page, not the Wix Blog page) ---- */
+.adv-top{padding:clamp(60px,7vw,100px) 0 clamp(30px,4vw,48px);text-align:center}
+.eyebrow{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.3em;color:var(--accent);margin-bottom:16px}
+.adv-top h1{font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:1.05}
+.adv-top .lede{margin:18px auto 0}
+.bento-sec{padding:0 0 clamp(50px,6vw,80px)}
+.bento{background:var(--alt);padding:clamp(10px,1.2vw,16px);display:grid;grid-template-columns:1.25fr .9fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:clamp(10px,1.2vw,16px);height:clamp(520px,46vw,680px)}
+.box{position:relative;overflow:hidden;border-radius:2px;background:var(--light);text-decoration:none;color:inherit;display:block}
+.b1{grid-row:1/3}
+.b2{grid-row:1/3}
+.box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.box:hover img,.box:focus-visible img{transform:scale(1.06)}
+.box .cap{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(253,251,248,.96);border-radius:2px;padding:14px 18px;transition:background .4s}
+.box .cap small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:6px}
+.box .cap b{display:block;font:400 clamp(1.1rem,1.6vw,1.45rem)/1.2 var(--serif)}
+.box .cap span{display:inline-block;margin-top:8px;font-size:.85rem;letter-spacing:.04em;border-bottom:1px solid var(--line);transition:border-color .3s}
+.box:hover .cap span{border-color:var(--accent)}
+.box.start{background:var(--accent);color:#FDFBF8;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(22px,2.6vw,36px);transition:background .4s}
+.box.start:hover,.box.start:focus-visible{background:#54463D}
+.box.start small{font-size:.75rem;text-transform:uppercase;letter-spacing:.24em;opacity:.85}
+.box.start b{font:400 clamp(1.6rem,2.6vw,2.4rem)/1.12 var(--serif);max-width:11ch}
+.box.start .arr{width:52px;height:52px;border-radius:50%;border:1px solid rgba(253,251,248,.7);display:grid;place-items:center;transition:transform .4s,background .4s,color .4s}
+.box.start:hover .arr{transform:translateX(6px);background:#FDFBF8;color:var(--accent)}
+.box.start .arr svg{width:22px;height:22px}
+.all-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:28px}
+.all-row p{margin:0;color:var(--muted);font-size:.95rem}
+.back{border-top:1px solid var(--line);padding:clamp(40px,5vw,64px) 0;text-align:center}
+.back h2{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:20px}
+.back nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.back nav a{border:1px solid var(--line);border-radius:999px;padding:.6em 1.3em;text-decoration:none;font-size:.95rem;transition:background .3s,color .3s,border-color .3s}
+.back nav a:hover{background:var(--accent);border-color:var(--accent);color:#FDFBF8}
 @media (max-width:980px){
-  .post{grid-template-columns:1fr}
-  .post .pbody{padding:24px 16px 28px}
-  .meta{font-size:.72rem;letter-spacing:.1em;gap:8px}
-  .blog-head{align-items:start}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}
+  .b1{grid-column:1/3;grid-row:auto;height:62vw;min-height:300px}
+  .b2,.b3,.start{grid-row:auto;height:clamp(240px,48vw,380px)}
+}
+@media (max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .b1,.b2,.b3,.start{grid-column:auto;height:clamp(260px,78vw,360px)}
 }
 
-/* global header: eight menu items (Design advice added) fit on desktop */
+/* global header: eight menu items (Interiors advice added) fit on desktop */
 @media (min-width:981px) and (max-width:1440px){
   .header-in{gap:16px}
   .nav{gap:0}
@@ -299,7 +307,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
       <a class="link" href="/rosa-version-2/#steps">How it works</a>
       <a class="link" href="/rosa-version-2/design-services">Design services</a>
       <a class="link" href="/rosa-version-2/portfolio">Portfolio</a>
-      <a class="link" href="/rosa-version-2/blog" aria-current="page">Design advice</a>
+      <a class="link" href="/rosa-version-2/interiors-advice" aria-current="page">Interiors advice</a>
       <a class="link" href="/rosa-version-2/aboutus">About us</a>
       <a class="link" href="/rosa-version-2/contact">Contact</a>
       <a class="btn btn-dark" href="/rosa-version-2/contact">Enquire with us</a>
@@ -307,54 +315,64 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
   </div>
 </header>
 <main>
-  <!-- 1. Hero: native Studio section added ABOVE the blog feed (same theme as the other pages) -->
+  <!-- 1. Hero: same theme as the other pages -->
   <section class="hero over short" style="padding:0">
-    <div class="hero-media"><img class="hero-img" src="https://static.wixstatic.com/media/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="Interior designed by Rosa Rose"></div>
+    <div class="hero-media"><img class="hero-img" src="https://static.wixstatic.com/media/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_6627171d332e401eadb577b93f1f1bc0~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_2400,h_1500,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="Kitchen designed by Rosa Rose"></div>
     <div class="hero-body">
-      <h1 aria-label="Design advice">
-        <span class="w" style="--d:0"><span>Design</span></span>
+      <h1 aria-label="Interiors advice">
+        <span class="w" style="--d:0"><span>Interiors</span></span>
         <span class="w" style="--d:1"><span>advice</span></span>
       </h1>
       <div class="rolling"><ul>
         <li>Ideas for every room</li>
         <li>Colour, light and layout</li>
-        <li>Tips from our studio</li>
+        <li>Tips from Emma and Sarah</li>
         <li>Online interior design, explained</li>
       </ul></div>
     </div>
   </section>
 
-  <!-- 2. Wix Blog feed (Post list widget). Only app settings: layout, colours, fonts -->
-  <section class="blog-sec">
+  <!-- 2. Four boxes: three articles and one "get started" box -->
+  <section class="bento-sec">
     <div class="wrap">
-      <div class="blog-head">
-        <h2>Latest articles</h2>
-        <nav class="cat-menu" aria-label="Blog categories">
-          <a href="#" aria-current="page">All posts</a>
-          <a href="#">Interior design</a>
-        </nav>
+      <div class="bento">
+        <a class="box b1 reveal" href="https://www.rosarosedesign.com/post/how-does-online-interior-design-work">
+          <img src="https://static.wixstatic.com/media/c6d174_46616bf5ddcd4f4eb281669842201268~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_85,enc_auto/c6d174_46616bf5ddcd4f4eb281669842201268~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_1200,h_1200,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="Living room with fireplace" loading="lazy">
+          <div class="cap"><small>Interiors advice</small><b>How does online interior design work?</b><span>Read the article</span></div>
+        </a>
+        <a class="box b2 reveal" href="https://www.rosarosedesign.com/post/the-impact-of-colour">
+          <img src="https://static.wixstatic.com/media/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_85,enc_auto/c6d174_d778c5b92945487c9897e64f58df8b79~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_1200,h_1200,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="Bedroom with floral wallpaper" loading="lazy">
+          <div class="cap"><small>Interiors advice</small><b>The impact of colour</b><span>Read the article</span></div>
+        </a>
+        <a class="box b3 reveal" href="https://www.rosarosedesign.com/blog">
+          <img src="https://static.wixstatic.com/media/ccfa30_8d64e4ee8ed6455fbac82622fc23db91~mv2.jpg/v1/fill/w_1400,h_1400,al_c,q_85,enc_auto/ccfa30_8d64e4ee8ed6455fbac82622fc23db91~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_1200,h_1200,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="Rosa Rose designers reviewing a design scheme at a laptop" loading="lazy">
+          <div class="cap"><small>Interiors advice</small><b>More advice coming soon</b><span>See all articles</span></div>
+        </a>
+        <a class="box start reveal" href="/rosa-version-2/contact">
+          <small>Ready when you are</small>
+          <b>Click here to get started</b>
+          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
-      <div class="posts">
-      <a class="post reveal" href="https://www.rosarosedesign.com/post/how-does-online-interior-design-work">
-        <div class="pimg"><img src="https://static.wixstatic.com/media/11062b_e1765be8b74f4a6fa50c652fbf37710e~mv2.jpg/v1/fill/w_1200,h_900,al_c,q_85,enc_auto/11062b_e1765be8b74f4a6fa50c652fbf37710e~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="How does online interior design work?" loading="lazy"></div>
-        <div class="pbody">
-          <div class="meta"><span>Interior design</span><i></i><span>Jul 27</span><i></i><span>2 min read</span></div>
-          <h3>How does online interior design work?</h3>
-          <p>Our online interior design service, also known as e-design or virtual interior design, makes it easier and more affordable than ever to transform your home. Whether you’re redesigning a single room or planning a complete home makeover, our digital service gives you professional expertise without the cost of face-to-face consultations.</p>
-          <span class="more">Read the article →</span>
-        </div>
-      </a>
-      <a class="post reveal" href="https://www.rosarosedesign.com/post/the-impact-of-colour">
-        <div class="pimg"><img src="https://static.wixstatic.com/media/c6d174_3d230e93f9aa47a7a9b67c4ad0eeac18~mv2.jpg/v1/fill/w_1200,h_900,al_c,q_85,enc_auto/c6d174_3d230e93f9aa47a7a9b67c4ad0eeac18~mv2.jpg" onerror="this.onerror=null;this.src='https://static.wixstatic.com/media/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg/v1/fill/w_1600,h_1200,al_c,q_85,enc_auto/c6d174_fd7d7528b17f40098a5dfe552dbc7951~mv2.jpg'" alt="The impact of colour" loading="lazy"></div>
-        <div class="pbody">
-          <div class="meta"><span>Interior design</span><i></i><span>Apr 23</span><i></i><span>2 min read</span></div>
-          <h3>The impact of colour</h3>
-          <p>Colour plays a powerful role in interior design and can significantly influence mood, wellbeing and the overall feel of a home. Thoughtfully chosen colour schemes help create spaces that are visually appealing and supportive of comfort, relaxation and everyday living.</p>
-          <span class="more">Read the article →</span>
-        </div>
-      </a>
+      <div class="all-row reveal">
+        <p>Showing our three newest articles. Every article we publish is in the full list.</p>
+        <a class="btn btn-line" href="https://www.rosarosedesign.com/blog">See all articles</a>
       </div>
-      <div class="build-note"><b>Mockup note:</b> the hero is a normal Studio section above the blog. The category menu and the article cards are the Wix Blog app, styled only with its own settings (Side by side layout, our colours and fonts), so the live page will match this closely.</div>
+    </div>
+  </section>
+
+  <!-- 3. Links back to the other pages -->
+  <section class="back">
+    <div class="wrap reveal">
+      <h2>Explore the rest of our site</h2>
+      <nav aria-label="Other pages">
+        <a href="/rosa-version-2/">Home</a>
+        <a href="/rosa-version-2/#steps">How it works</a>
+        <a href="/rosa-version-2/design-services">Design services</a>
+        <a href="/rosa-version-2/portfolio">Portfolio</a>
+        <a href="/rosa-version-2/aboutus">About us</a>
+        <a href="/rosa-version-2/contact">Contact</a>
+      </nav>
     </div>
   </section>
 </main>
@@ -410,7 +428,7 @@ footer{background:var(--alt);padding:60px 0 40px;border-top:1px solid var(--line
         <li><a href="/rosa-version-2/#steps">How it works</a></li>
         <li><a href="/rosa-version-2/design-services">Design services</a></li>
         <li><a href="/rosa-version-2/portfolio">Portfolio</a></li>
-        <li><a href="/rosa-version-2/blog">Design advice</a></li>
+        <li><a href="/rosa-version-2/interiors-advice">Interiors advice</a></li>
         <li><a href="/rosa-version-2/aboutus">About us</a></li>
         <li><a href="/rosa-version-2/contact">Contact</a></li>
         <li><a href="https://www.rosarosedesign.com/terms-conditions">Terms &amp; Conditions</a></li>
